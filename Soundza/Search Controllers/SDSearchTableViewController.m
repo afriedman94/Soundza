@@ -9,14 +9,16 @@
 #import "SDSearchTableViewController.h"
 #import "SDSoundCloudAPI.h"
 #import "SDSearchResultsTableViewController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 static NSString *const KTableViewReuseIdentitifer = @"Cell";
+static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/6710916626";
 
 @interface SDSearchTableViewController ()
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) IBOutlet ADBannerView *adBannerView;
 @property (strong, nonatomic) NSArray *generes;
 @property (assign ,nonatomic) BOOL fromSearch;
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @end
 
 @implementation SDSearchTableViewController
@@ -27,9 +29,8 @@ static NSString *const KTableViewReuseIdentitifer = @"Cell";
     self.generes = [SDSoundCloudAPI listOfGenres];
     self.searchBar.delegate = self;
     
-    self.adBannerView.delegate = self;
-  }
-
+    [self setupAdBanner];
+}
 
 #pragma mark - Table view data source
 
@@ -100,18 +101,17 @@ static NSString *const KTableViewReuseIdentitifer = @"Cell";
     }
 }
 
-#pragma mark - ADBannerViewDelegate
+#pragma mark - Helpers
 
--(void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    NSLog(@"Banner Did Load");
+
+-(void)setupAdBanner{
+    
+    self.bannerView.adUnitID = kGenreAdBannerId;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
+    
 }
 
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    if (error) {
-        NSLog(@"iAd Banner Error");
-    }
-}
 
 @end

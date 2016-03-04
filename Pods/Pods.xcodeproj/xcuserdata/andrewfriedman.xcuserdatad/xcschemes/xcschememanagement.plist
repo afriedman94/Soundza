@@ -9,16 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Appirater-Appirater.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Appirater.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>CocoaSoundCloudAPI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,6 +57,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3AFF42DE140E76F65AE665867F8BF76C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3D923CCD4DDAD4F6DDACCE3185F4C681</key>
 		<dict>
 			<key>primary</key>
@@ -77,32 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4B0FEC608751BDDCCED686657A9D469C</key>
+		<key>AF71EED6F961B8E9C6849C343C3D2110</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>642BE29F8F0C5A71ACF26893076A61B9</key>
+		<key>B4610BB782FA42986A1663E3E8A920C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8071BA76D3B1308C0B1ACED15CA419FA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A132C8D211C6B8B9D671B650DC3ACD64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CBA9C9F6A582DF509DC7D779E374E359</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F999BD3434F040D75C4583C165D59C1C</key>
+		<key>D444390D39A7E7A04ED12908874EB4AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

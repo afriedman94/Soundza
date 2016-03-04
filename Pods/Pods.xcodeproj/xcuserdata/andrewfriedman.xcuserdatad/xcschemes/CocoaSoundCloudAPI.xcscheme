@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '383039B3852516B9BB1ED4AB'
+               BlueprintIdentifier = 'F283F7BCBCF561FE3BE830AF'
                BlueprintName = 'CocoaSoundCloudAPI'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCocoaSoundCloudAPI.a'>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E4C59E19FF4EE21026ADC728'
+               BlueprintIdentifier = '269A1C8127CC2FBD71D14C96'
                BlueprintName = 'NXOAuth2Client'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libNXOAuth2Client.a'>

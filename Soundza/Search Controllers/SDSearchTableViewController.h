@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/iAd.h>
 
-@interface SDSearchTableViewController : UITableViewController <UISearchBarDelegate, ADBannerViewDelegate>
+@interface SDSearchTableViewController : UITableViewController <UISearchBarDelegate>
 
 @end

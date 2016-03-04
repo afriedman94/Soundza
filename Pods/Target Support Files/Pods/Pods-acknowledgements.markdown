@@ -24,10 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## Appirater
-
-Copyright 2015. Arash Payan. This library is distributed under the terms of the MIT/X11.
-
 ## CocoaSoundCloudAPI
 
 
@@ -233,6 +229,10 @@ Copyright 2015. Arash Payan. This library is distributed under the terms of the 
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
+## Google-Mobile-Ads-SDK
+
+Copyright 2011 Google Inc. All Rights Reserved.
 
 ## MarqueeLabel
 

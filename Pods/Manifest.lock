@@ -20,9 +20,9 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Appirater (2.0.5)
   - CocoaSoundCloudAPI (1.0.1):
     - NXOAuth2Client (= 1.2.1)
+  - Google-Mobile-Ads-SDK (7.7.0)
   - MarqueeLabel (2.2.5)
   - NXOAuth2Client (1.2.1)
   - Realm (0.95.0):
@@ -35,8 +35,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - Appirater
   - CocoaSoundCloudAPI (= 1.0.1)
+  - Google-Mobile-Ads-SDK (~> 7.0)
   - MarqueeLabel
   - Realm
   - SDWebImage (~> 3.6)
@@ -44,8 +44,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
-  Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
   CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
+  Google-Mobile-Ads-SDK: d290e523a6e2f223256abcbf8e0c778b55b1f04e
   MarqueeLabel: 65ca60ee9ba554be34f35339004c6c9fe6366a31
   NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
   Realm: bbb171b96728ea136ed5cd354dca2a3d6529923c

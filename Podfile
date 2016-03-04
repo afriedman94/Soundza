@@ -11,3 +11,6 @@ pod 'MarqueeLabel'
 pod "AFNetworking", "~> 2.0"
 
 pod "Realm"
+
+pod 'Google-Mobile-Ads-SDK', '~> 7.0'
+

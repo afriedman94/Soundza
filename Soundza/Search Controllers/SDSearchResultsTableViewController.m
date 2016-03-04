@@ -11,11 +11,14 @@
 #import "SDTrack.h"
 #import "PlayerManager.h"
 #import "PlaylistManager.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 static NSString *const KSearchResultsTableViewCellReuseID = @"Results";
+static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/4036651825";
 
 @interface SDSearchResultsTableViewController ()
 @property (strong, nonatomic) NSArray *searchResults;
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) UIRefreshControl *refreshController;
 @end
 
@@ -25,6 +28,8 @@ static NSString *const KSearchResultsTableViewCellReuseID = @"Results";
     [super viewDidLoad];
     
     self.searchResults = [[NSArray alloc]init];
+    
+    [self setupAdBanner];
     
     self.navigationItem.title = self.genreString ? self.genreString : self.searchString;
     
@@ -96,6 +101,16 @@ static NSString *const KSearchResultsTableViewCellReuseID = @"Results";
 }
 
 #pragma mark - Private Methods
+
+-(void)setupAdBanner{
+    
+    self.bannerView.adUnitID = kResultsAdBannerId;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
+    
+}
+
 
 -(void)populateDataSource
 {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ot-eS-xOx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Ot-eS-xOx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Search-->
@@ -11,35 +11,31 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="DEW-Q7-u1u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="qvl-fh-FO5">
                             <rect key="frame" x="0.0" y="64" width="320" height="94"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" misplaced="YES" searchBarStyle="minimal" text="" placeholder="Search SoundCloud" translatesAutoresizingMaskIntoConstraints="NO" id="rGl-SF-SLb">
+                                <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search SoundCloud" translatesAutoresizingMaskIntoConstraints="NO" id="rGl-SF-SLb">
                                     <rect key="frame" x="0.0" y="50" width="320" height="44"/>
-                                    <animations/>
                                     <color key="tintColor" red="0.9438813328742981" green="0.36720648407936096" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="barTintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
-                                <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="751" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YHo-AD-Hs2">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hE-Ru-BJf" customClass="GADBannerView">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                    <animations/>
-                                </adBannerView>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="YHo-AD-Hs2" firstAttribute="top" secondItem="qvl-fh-FO5" secondAttribute="top" id="7zI-0s-fRq"/>
-                                <constraint firstAttribute="trailing" secondItem="YHo-AD-Hs2" secondAttribute="trailing" id="BIY-V7-098"/>
+                                <constraint firstAttribute="trailing" secondItem="2hE-Ru-BJf" secondAttribute="trailing" id="GJd-IL-fvx"/>
                                 <constraint firstAttribute="trailing" secondItem="rGl-SF-SLb" secondAttribute="trailing" id="MJo-Uh-q48"/>
                                 <constraint firstItem="rGl-SF-SLb" firstAttribute="leading" secondItem="qvl-fh-FO5" secondAttribute="leading" id="Uci-bl-ybD"/>
                                 <constraint firstAttribute="bottom" secondItem="rGl-SF-SLb" secondAttribute="bottom" id="XCv-JX-rDj"/>
-                                <constraint firstItem="rGl-SF-SLb" firstAttribute="top" secondItem="YHo-AD-Hs2" secondAttribute="bottom" id="hxf-Jh-Zr3"/>
-                                <constraint firstItem="rGl-SF-SLb" firstAttribute="top" secondItem="YHo-AD-Hs2" secondAttribute="bottom" id="kLG-os-Jt5"/>
-                                <constraint firstItem="YHo-AD-Hs2" firstAttribute="leading" secondItem="qvl-fh-FO5" secondAttribute="leading" id="nJe-Zs-3v4"/>
+                                <constraint firstItem="2hE-Ru-BJf" firstAttribute="leading" secondItem="qvl-fh-FO5" secondAttribute="leading" id="e3K-oO-d8d"/>
+                                <constraint firstItem="2hE-Ru-BJf" firstAttribute="top" secondItem="qvl-fh-FO5" secondAttribute="top" id="mdu-DV-2Gb"/>
+                                <constraint firstItem="rGl-SF-SLb" firstAttribute="top" secondItem="2hE-Ru-BJf" secondAttribute="bottom" id="uMR-cJ-AoN"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -49,9 +45,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jj5-Do-x5D" id="wL6-6c-TKm">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -64,7 +58,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="adBannerView" destination="YHo-AD-Hs2" id="hX3-B7-orq"/>
+                        <outlet property="bannerView" destination="2hE-Ru-BJf" id="mC0-9Y-wRU"/>
                         <outlet property="searchBar" destination="rGl-SF-SLb" id="2Hv-w2-h10"/>
                         <segue destination="Zs1-pc-RX5" kind="show" identifier="toResultsVC" id="Af8-k5-A0I"/>
                     </connections>
@@ -80,16 +74,27 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="10" sectionFooterHeight="10" id="3Qc-bF-f7S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <adBannerView key="tableHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7RN-vP-tGc">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="hvk-l8-6Pm">
                             <rect key="frame" x="0.0" y="64" width="320" height="50"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                        </adBannerView>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-G7-GZc" customClass="GADBannerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="wg4-G7-GZc" secondAttribute="bottom" id="0oQ-F4-ga3"/>
+                                <constraint firstItem="wg4-G7-GZc" firstAttribute="leading" secondItem="hvk-l8-6Pm" secondAttribute="leading" id="3Ig-VR-ij2"/>
+                                <constraint firstAttribute="trailing" secondItem="wg4-G7-GZc" secondAttribute="trailing" id="5OE-TA-kzK"/>
+                                <constraint firstItem="wg4-G7-GZc" firstAttribute="top" secondItem="hvk-l8-6Pm" secondAttribute="top" id="VZb-M1-fdx"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Results" rowHeight="70" id="imV-LH-wrz" customClass="SDSearchResultsTableViewCell">
-                                <rect key="frame" x="0.0" y="180" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="164" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="imV-LH-wrz" id="dxm-va-ZWw">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -97,7 +102,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jY6-DN-H2m">
                                             <rect key="frame" x="8" y="5" width="59" height="59"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="59" id="qAN-Xw-08S"/>
                                                 <constraint firstAttribute="height" constant="59" id="yWt-h5-I3u"/>
@@ -105,7 +109,6 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xY-Fq-Pzf">
                                             <rect key="frame" x="276" y="13" width="44" height="44"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="FFa-xz-Ibx"/>
                                                 <constraint firstAttribute="width" constant="44" id="eef-Lq-ZBU"/>
@@ -120,7 +123,6 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-rr-LU0">
                                             <rect key="frame" x="75" y="37" width="204" height="15"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="Z4w-i0-aWZ"/>
                                                 <constraint firstAttribute="width" constant="204" id="pFP-4B-lXT"/>
@@ -131,7 +133,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFA-4m-jLW">
                                             <rect key="frame" x="75" y="18" width="204" height="18"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="TLu-jE-ZXm"/>
                                             </constraints>
@@ -140,7 +141,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstItem="ACn-rr-LU0" firstAttribute="top" secondItem="oFA-4m-jLW" secondAttribute="bottom" constant="1" id="73U-wJ-yWV"/>
                                         <constraint firstItem="ACn-rr-LU0" firstAttribute="leading" secondItem="jY6-DN-H2m" secondAttribute="trailing" constant="8" id="Frh-wO-EKv"/>
@@ -153,7 +153,6 @@
                                         <constraint firstAttribute="leading" secondItem="jY6-DN-H2m" secondAttribute="leading" constant="-8" id="yDD-im-P17"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <connections>
                                     <outlet property="albumArtImageView" destination="jY6-DN-H2m" id="RFv-Wg-uUx"/>
                                     <outlet property="plusButton" destination="7xY-Fq-Pzf" id="bqL-kE-AXr"/>
@@ -168,6 +167,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="bannerView" destination="wg4-G7-GZc" id="jJI-hi-dh8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oY6-KT-KhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,7 +184,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSo-mZ-bic">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="barTintColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
