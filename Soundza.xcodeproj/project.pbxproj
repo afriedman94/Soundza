@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1806D0871BFFB49200EA61BA /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806D0861BFFB49200EA61BA /* iRate.m */; };
 		1817FDE81BB6528500EBA100 /* no-album-art.png in Resources */ = {isa = PBXBuildFile; fileRef = 1817FDE71BB6528500EBA100 /* no-album-art.png */; };
 		1817FEA51BB7975F00EBA100 /* NoArtworkOrange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1817FEA41BB7975F00EBA100 /* NoArtworkOrange@2x.png */; };
 		1842C2BD1BE710580001033D /* breadpilot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1842C2BC1BE710580001033D /* breadpilot.jpg */; };
@@ -75,8 +74,6 @@
 
 /* Begin PBXFileReference section */
 		04449D7A4393601368ECD5E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1806D0851BFFB49200EA61BA /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
-		1806D0861BFFB49200EA61BA /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		1817FDE71BB6528500EBA100 /* no-album-art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-album-art.png"; sourceTree = "<group>"; };
 		1817FEA41BB7975F00EBA100 /* NoArtworkOrange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NoArtworkOrange@2x.png"; sourceTree = "<group>"; };
 		1842C2BC1BE710580001033D /* breadpilot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = breadpilot.jpg; sourceTree = "<group>"; };
@@ -247,8 +244,6 @@
 				18994FE01B90F93300AEA795 /* Assets */,
 				18994F6D1B8F8A4400AEA795 /* AppDelegate.h */,
 				18994F6E1B8F8A4400AEA795 /* AppDelegate.m */,
-				1806D0851BFFB49200EA61BA /* iRate.h */,
-				1806D0861BFFB49200EA61BA /* iRate.m */,
 				18994FB31B8F94BC00AEA795 /* SDSoundCloudAPI.h */,
 				18994FB41B8F94BC00AEA795 /* SDSoundCloudAPI.m */,
 				18994FCE1B90CEBE00AEA795 /* SliderHandle@2x.png */,
@@ -583,7 +578,6 @@
 				18994FC41B8FA53900AEA795 /* SDTrack.m in Sources */,
 				189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
-				1806D0871BFFB49200EA61BA /* iRate.m in Sources */,
 				18994FA61B8F8E1800AEA795 /* SDSearchTableViewController.m in Sources */,
 				18994FC11B8F99EA00AEA795 /* SDSearchResultsTableViewCell.m in Sources */,
 				18994FE51B9B683300AEA795 /* SDQueueTableViewCell.m in Sources */,

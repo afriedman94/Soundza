@@ -25,6 +25,9 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hE-Ru-BJf" customClass="GADBannerView">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="e5P-K9-Wit"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +38,6 @@
                                 <constraint firstAttribute="bottom" secondItem="rGl-SF-SLb" secondAttribute="bottom" id="XCv-JX-rDj"/>
                                 <constraint firstItem="2hE-Ru-BJf" firstAttribute="leading" secondItem="qvl-fh-FO5" secondAttribute="leading" id="e3K-oO-d8d"/>
                                 <constraint firstItem="2hE-Ru-BJf" firstAttribute="top" secondItem="qvl-fh-FO5" secondAttribute="top" id="mdu-DV-2Gb"/>
-                                <constraint firstItem="rGl-SF-SLb" firstAttribute="top" secondItem="2hE-Ru-BJf" secondAttribute="bottom" id="uMR-cJ-AoN"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -82,11 +84,13 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg4-G7-GZc" customClass="GADBannerView">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="crG-ye-bcS"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="wg4-G7-GZc" secondAttribute="bottom" id="0oQ-F4-ga3"/>
                                 <constraint firstItem="wg4-G7-GZc" firstAttribute="leading" secondItem="hvk-l8-6Pm" secondAttribute="leading" id="3Ig-VR-ij2"/>
                                 <constraint firstAttribute="trailing" secondItem="wg4-G7-GZc" secondAttribute="trailing" id="5OE-TA-kzK"/>
                                 <constraint firstItem="wg4-G7-GZc" firstAttribute="top" secondItem="hvk-l8-6Pm" secondAttribute="top" id="VZb-M1-fdx"/>

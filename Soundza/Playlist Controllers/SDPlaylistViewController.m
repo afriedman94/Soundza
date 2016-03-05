@@ -10,8 +10,10 @@
 #import "PlaylistManager.h"
 #import "SDPlaylistTableViewCell.h"
 #import "PlayerManager.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlist";
+static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/8545746621";
 
 @interface SDPlaylistViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -21,6 +23,7 @@ static NSString *const KTableViewReuseIdentitifer = @"Playlist";
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *renameBarButton;
 @property (strong, nonatomic) RLMArray *RLMTracks;
 @property (assign, nonatomic) BOOL editSelected;
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 - (IBAction)editBarButtonPressed:(id)sender;
 - (IBAction)renameBarButtonPressed:(id)sender;
 - (IBAction)playlistNavButtonPressed:(id)sender;
@@ -34,7 +37,6 @@ static NSString *const KTableViewReuseIdentitifer = @"Playlist";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
-    
     [self.tableView setEditing:YES];
     self.tableView.allowsSelectionDuringEditing = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -274,8 +276,18 @@ static NSString *const KTableViewReuseIdentitifer = @"Playlist";
         self.tracks = [parsedTracks mutableCopy];
         self.tableView.hidden = !self.tracks.count;
         [self.tableView reloadData];
+        [self setupAdBanner];
     }];
 
+}
+
+-(void)setupAdBanner{
+    
+    self.bannerView.adUnitID = kPlaylistAdBannerId;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
+    
 }
 
 -(void)dealloc

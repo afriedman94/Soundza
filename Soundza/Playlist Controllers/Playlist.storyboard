@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Dy-bU-g5I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Dy-bU-g5I">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -38,11 +38,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="15" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="aJ9-GY-vLT">
-                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Rtc-1B-Xgf">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Lq-MY1" customClass="GADBannerView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="XUb-ph-8VD"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="Txe-Lq-MY1" firstAttribute="top" secondItem="Rtc-1B-Xgf" secondAttribute="top" id="jU4-rM-3wG"/>
+                                        <constraint firstAttribute="trailing" secondItem="Txe-Lq-MY1" secondAttribute="trailing" id="oah-o1-O1q"/>
+                                        <constraint firstItem="Txe-Lq-MY1" firstAttribute="leading" secondItem="Rtc-1B-Xgf" secondAttribute="leading" id="wve-RT-qRB"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Playlist" rowHeight="70" id="G4c-7W-81z" customClass="SDPlaylistTableViewCell">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="100" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4c-7W-81z" id="pRJ-Mk-uky">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -119,7 +138,7 @@
                             <constraint firstItem="7ON-mO-ZTu" firstAttribute="top" secondItem="aJ9-GY-vLT" secondAttribute="bottom" id="9Oh-Yw-H5n"/>
                             <constraint firstItem="EHc-TX-uMT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" id="D3s-FU-9lU"/>
                             <constraint firstAttribute="trailing" secondItem="aJ9-GY-vLT" secondAttribute="trailing" id="Efb-fL-k0I"/>
-                            <constraint firstItem="aJ9-GY-vLT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" constant="8" id="Hln-AA-dGZ"/>
+                            <constraint firstItem="aJ9-GY-vLT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" constant="44" id="Hln-AA-dGZ"/>
                             <constraint firstItem="vKX-ZS-O6y" firstAttribute="centerX" secondItem="e2n-UV-YKT" secondAttribute="centerX" id="exj-lU-hxS"/>
                             <constraint firstItem="EHc-TX-uMT" firstAttribute="leading" secondItem="e2n-UV-YKT" secondAttribute="leading" id="jDU-8B-dy6"/>
                             <constraint firstItem="4dH-mk-IgV" firstAttribute="centerX" secondItem="e2n-UV-YKT" secondAttribute="centerX" id="p18-sY-wFn"/>
@@ -136,6 +155,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bannerView" destination="Txe-Lq-MY1" id="Myz-IO-m6F"/>
                         <outlet property="editBarButton" destination="vZ5-IM-vWa" id="4XQ-bN-taV"/>
                         <outlet property="renameBarButton" destination="KCb-9g-lPU" id="n98-W1-27H"/>
                         <outlet property="tableView" destination="aJ9-GY-vLT" id="z9a-t9-YRE"/>
@@ -162,9 +182,28 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="70" sectionHeaderHeight="1" sectionFooterHeight="9" translatesAutoresizingMaskIntoConstraints="NO" id="Y5l-ct-J9k">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="DjN-Jp-Db2">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGe-dZ-8j7" customClass="GADBannerView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="UuB-cj-Iae"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="FGe-dZ-8j7" firstAttribute="top" secondItem="DjN-Jp-Db2" secondAttribute="top" id="1fT-nT-Wng"/>
+                                        <constraint firstItem="FGe-dZ-8j7" firstAttribute="leading" secondItem="DjN-Jp-Db2" secondAttribute="leading" id="GCf-mh-LzE"/>
+                                        <constraint firstAttribute="trailing" secondItem="FGe-dZ-8j7" secondAttribute="trailing" id="wR5-Gx-xOy"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="New" rowHeight="70" id="Y7B-2J-hT6" customClass="SDCreatePlaylistTableViewCell">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="120" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y7B-2J-hT6" id="lD4-9h-xRL">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -199,7 +238,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Playlists" rowHeight="70" id="Z9V-IN-oBJ" customClass="SDPlaylistsTableViewCell">
-                                        <rect key="frame" x="0.0" y="120" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="190" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z9V-IN-oBJ" id="fKY-bs-dK9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -282,6 +321,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bannerView" destination="FGe-dZ-8j7" id="DN4-pA-KZY"/>
                         <outlet property="editBarButton" destination="H7f-9R-aGB" id="bUX-0j-c0q"/>
                         <outlet property="navBar" destination="8j4-c1-dEJ" id="oqr-dM-Cem"/>
                         <outlet property="tableView" destination="Y5l-ct-J9k" id="scU-fK-RCu"/>

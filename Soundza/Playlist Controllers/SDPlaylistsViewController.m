@@ -10,9 +10,11 @@
 #import "SDPlaylistsTableViewCell.h"
 #import "PlaylistManager.h"
 #import "SDCreatePlaylistTableViewCell.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlists";
 static NSString *const KTableViewNewReuseIdentitifer = @"New";
+static NSString *const kPlaylistsAdBannerId = @"ca-app-pub-9029083903735558/9743278227";
 
 
 @interface SDPlaylistsViewController ()
@@ -20,6 +22,7 @@ static NSString *const KTableViewNewReuseIdentitifer = @"New";
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editBarButton;
 @property (assign, nonatomic) BOOL editSelected;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) UITextField *createTextField;
 - (IBAction)backBarButtonPressed:(id)sender;
 - (IBAction)editButtonPressed:(id)sender;
@@ -39,8 +42,12 @@ static NSString *const KTableViewNewReuseIdentitifer = @"New";
     
     RLMResults *playlists = [[RLMPlaylist allObjects]sortedResultsUsingProperty:@"createdAt" ascending:YES];
     self.playlists = playlists;
-    
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupAdBanner];
 }
 
 #pragma mark - UITableView Delegate/Data Source
@@ -191,6 +198,16 @@ static NSString *const KTableViewNewReuseIdentitifer = @"New";
         [self.tableView setEditing:YES animated:YES];
     }
 
+}
+
+#pragma mark - Helpers
+
+-(void)setupAdBanner{
+    
+    self.bannerView.adUnitID = kPlaylistsAdBannerId;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
 }
 
 @end
