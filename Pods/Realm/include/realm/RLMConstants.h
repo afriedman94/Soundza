@@ -18,108 +18,156 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- Property types supported in Realm models.
+#pragma mark - Enums
 
- See [Realm Models](http://realm.io/docs/cocoa/latest/#models)
+/**
+ `RLMPropertyType` is an enumeration describing all property types supported in Realm models.
+
+ For more information, see [Realm Models](https://realm.io/docs/objc/latest/#models).
  */
 // Make sure numbers match those in <realm/data_type.hpp>
 typedef NS_ENUM(int32_t, RLMPropertyType) {
-    ////////////////////////////////
-    // Primitive types
-    ////////////////////////////////
 
-    /** Integer type: NSInteger, int, long, Int (Swift) */
+#pragma mark - Primitive types
+
+    /** Integers: `NSInteger`, `int`, `long`, `Int` (Swift) */
     RLMPropertyTypeInt    = 0,
-    /** Boolean type: BOOL, bool, Bool (Swift) */
+    /** Booleans: `BOOL`, `bool`, `Bool` (Swift) */
     RLMPropertyTypeBool   = 1,
-    /** Float type: CGFloat (32bit), float, Float (Swift) */
+    /** Floating-point numbers: `float`, `Float` (Swift) */
     RLMPropertyTypeFloat  = 9,
-    /** Double type: CGFloat (64bit), double, Double (Swift) */
+    /** Double-precision floating-point numbers: `double`, `Double` (Swift) */
     RLMPropertyTypeDouble = 10,
 
-    ////////////////////////////////
-    // Object types
-    ////////////////////////////////
+#pragma mark - Object types
 
-    /** String type: NSString, String (Swift) */
+    /** Strings: `NSString`, `String` (Swift) */
     RLMPropertyTypeString = 2,
-    /** Data type: NSData */
+    /** Binary data: `NSData` */
     RLMPropertyTypeData   = 4,
-    /** Any type: id, **not supported in Swift** */
+    /** 
+     Any object: `id`.
+     
+     This property type is no longer supported for new models. However, old models with any-typed properties are still
+     supported for migration purposes.
+     */
     RLMPropertyTypeAny    = 6,
-    /** Date type: NSDate */
-    RLMPropertyTypeDate   = 7,
+    /** Dates: `NSDate` */
+    RLMPropertyTypeDate   = 8,
 
-    ////////////////////////////////
-    // Array/Linked object types
-    ////////////////////////////////
+#pragma mark - Array/Linked object types
 
-    /** Object type. See [Realm Models](http://realm.io/docs/cocoa/latest/#models) */
+    /** Realm model objects. See [Realm Models](https://realm.io/docs/objc/latest/#models) for more information. */
     RLMPropertyTypeObject = 12,
-    /** Array type. See [Realm Models](http://realm.io/docs/cocoa/latest/#models) */
+    /** Realm arrays. See [Realm Models](https://realm.io/docs/objc/latest/#models) for more information. */
     RLMPropertyTypeArray  = 13,
+    /** Realm linking objects. See [Realm Models](https://realm.io/docs/objc/latest/#models) for more information. */
+    RLMPropertyTypeLinkingObjects = 14,
 };
 
-// Appledoc doesn't support documenting externed globals, so document them as an
-// enum instead
-#ifdef APPLEDOC
-typedef NS_ENUM(NSString, RLMRealmNotification) {
 /**
- Posted by RLMRealm when the data in the realm has changed.
-
- DidChange are posted after a realm has been refreshed to reflect a write
- transaction, i.e. when an autorefresh occurs, [refresh]([RLMRealm refresh]) is
- called, after an implicit refresh from [beginWriteTransaction]([RLMRealm beginWriteTransaction]),
- and after a local write transaction is committed.
+ `RLMError` is an enumeration representing all recoverable errors. It is associated with the
+ Realm error domain specified in `RLMErrorDomain`.
  */
-    RLMRealmDidChangeNotification,
-/**
- Posted by RLMRealm when a write transaction has been committed to an RLMRealm on
- a different thread for the same file. This is not posted if
- [autorefresh]([RLMRealm autorefresh]) is enabled or if the RLMRealm is
- refreshed before the notifcation has a chance to run.
-
- Realms with autorefresh disabled should normally have a handler for this
- notification which calls [refresh]([RLMRealm refresh]) after doing some work.
- While not refreshing is allowed, it may lead to large Realm files as Realm has
- to keep an extra copy of the data for the un-refreshed RLMRealm.
- */
-    RLMRealmRefreshRequiredNotification,
-};
-#else
-// See comments above
-extern NSString * const RLMRealmRefreshRequiredNotification;
-extern NSString * const RLMRealmDidChangeNotification;
-#endif
-
 typedef NS_ENUM(NSInteger, RLMError) {
-    /** Returned by RLMRealm if no other specific error is returned when a realm is opened. */
+    /** Denotes a general error that occurred when trying to open a Realm. */
     RLMErrorFail                  = 1,
-    /** Returned by RLMRealm for any I/O related exception scenarios when a realm is opened. */
-    RLMErrorFileAccessError       = 2,
-    /** Returned by RLMRealm if the user does not have permission to open or create
-        the specified file in the specified access mode when the realm is opened. */
+
+    /** Denotes a file I/O error that occurred when trying to open a Realm. */
+    RLMErrorFileAccess            = 2,
+
+    /** 
+     Denotes a file permission error that ocurred when trying to open a Realm.
+     
+     This error can occur if the user does not have permission to open or create
+     the specified file in the specified access mode when opening a Realm.
+     */
     RLMErrorFilePermissionDenied  = 3,
-    /** Returned by RLMRealm if no_create was specified and the file did already exist when the realm is opened. */
+
+    /** Denotes an error where a file was to be written to disk, but another file with the same name already exists. */
     RLMErrorFileExists            = 4,
-    /** Returned by RLMRealm if no_create was specified and the file was not found when the realm is opened. */
+
+    /**
+     Denotes an error that occurs if a file could not be found.
+     
+     This error may occur if a Realm file could not be found on disk when trying to open a
+     Realm as read-only, or if the directory part of the specified path was not found when
+     trying to write a copy.
+     */
     RLMErrorFileNotFound          = 5,
-    /** Returned by RLMRealm if the database file is currently open in another
-        process which cannot share with the current process due to an
-        architecture mismatch. */
+
+    /** 
+     Denotes an error that occurs if a file format upgrade is required to open the file,
+     but upgrades were explicitly disabled.
+     */
+    RLMErrorFileFormatUpgradeRequired = 6,
+
+    /** 
+     Denotes an error that occurs if the database file is currently open in another
+     process which cannot share with the current process due to an
+     architecture mismatch.
+     
+     This error may occur if trying to share a Realm file between an i386 (32-bit) iOS
+     Simulator and the Realm Browser application. In this case, please use the 64-bit
+     version of the iOS Simulator.
+     */
     RLMErrorIncompatibleLockFile  = 8,
+
+    /** Denotes an error that occurs when there is insufficient available address space. */
+    RLMErrorAddressSpaceExhausted = 9,
+
+    /** Denotes an error that occurs if there is a schema version mismatch, so that a migration is required. */
+    RLMErrorSchemaMismatch = 10,
 };
 
-// Schema version used for uninitialized Realms
+#pragma mark - Constants
+
+#pragma mark - Notification Constants
+
+/**
+ This notification is posted by a Realm when the data in that Realm has changed.
+
+ More specifically, this notification is posted after a Realm has been refreshed to
+ reflect a write transaction. This can happen when an autorefresh occurs, when
+ `-[RLMRealm refresh]` is called, after an implicit refresh from `-[RLMRealm beginWriteTransaction]`,
+ or after a local write transaction is completed.
+ */
+extern NSString * const RLMRealmRefreshRequiredNotification;
+
+/**
+ This notification is posted by a Realm when a write transaction has been
+ committed to a Realm on a different thread for the same file.
+ 
+ It is not posted if `-[RLMRealm autorefresh]` is enabled, or if the Realm is
+ refreshed before the notification has a chance to run.
+
+ Realms with autorefresh disabled should normally install a handler for this
+ notification which calls `-[RLMRealm refresh]` after doing some work. Refreshing
+ the Realm is optional, but not refreshing the Realm may lead to large Realm
+ files. This is because Realm must keep an extra copy of the data for the stale
+ Realm.
+ */
+extern NSString * const RLMRealmDidChangeNotification;
+
+#pragma mark - Other Constants
+
+/** The schema version used for uninitialized Realms */
 extern const uint64_t RLMNotVersioned;
 
+/** An error domain identifying Realm-specific errors. */
 extern NSString * const RLMErrorDomain;
 
+/** An error domain identifying non-specific system errors. */
+extern NSString * const RLMUnknownSystemErrorDomain;
+
+/** The corresponding value is the name of an exception thrown by Realm. */
 extern NSString * const RLMExceptionName;
 
+/** The corresponding value is a Realm file version. */
 extern NSString * const RLMRealmVersionKey;
 
+/** The corresponding key is the version of the underlying database engine. */
 extern NSString * const RLMRealmCoreVersionKey;
 
+/** The corresponding key is the Realm invalidated property name. */
 extern NSString * const RLMInvalidatedKey;

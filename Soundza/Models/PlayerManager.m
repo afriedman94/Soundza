@@ -13,6 +13,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RLMTrack.h"
 
+static NSString *const kSoundCloudClientId = @"376f225bf427445fc4bfb6b99b72e0bf";
+
 @implementation PlayerManager
 
 {
@@ -36,7 +38,7 @@
 -(void)playTrack:(SDTrack *)track
 {
     
-    NSString *streamURLSTring = [NSString stringWithFormat:@"%@?client_id=376f225bf427445fc4bfb6b99b72e0bf", track.streamURLString];
+    NSString *streamURLSTring = [NSString stringWithFormat:@"%@?client_id=%@", track.streamURLString, kSoundCloudClientId];
     NSURL *streamURL = [NSURL URLWithString:streamURLSTring];
     self.player = [[AVPlayer alloc]initWithURL:streamURL];
     [self.player play];

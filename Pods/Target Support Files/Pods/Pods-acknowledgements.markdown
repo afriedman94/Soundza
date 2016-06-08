@@ -236,7 +236,7 @@ Copyright 2011 Google Inc. All Rights Reserved.
 
 ## MarqueeLabel
 
-Copyright (c) 2011-2013 Charles Powell
+Copyright (c) 2011-2016 Charles Powell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
@@ -540,23 +540,23 @@ EXPORT COMPLIANCE
 You understand that the Software may contain cryptographic functions that may be
 subject to export restrictions, and you represent and warrant that you are not
 located in a country that is subject to United States export restriction or embargo,
-including Cuba, Iran, North Korea, Sudan, or Syria, and that you are not on the
-Department of Commerce list of Denied Persons, Unverified Parties, or affiliated
-with a Restricted Entity.
+including Cuba, Iran, North Korea, Sudan, Syria or the Crimea region, and that you
+are not on the Department of Commerce list of Denied Persons, Unverified Parties,
+or affiliated with a Restricted Entity.
 
 You agree to comply with all export, re-export and import restrictions and
 regulations of the Department of Commerce or other agency or authority of the
 United States or other applicable countries. You also agree not to transfer, or
 authorize the transfer of, directly or indirectly, the Software to any prohibited
-country, including Cuba, Iran, North Korea, Sudan, or Syria, or to any person or
-organization on or affiliated with the Department of Commerce lists of Denied
-Persons, Unverified Parties or Restricted Entities, or otherwise in violation of any
-such restrictions or regulations.
+country, including Cuba, Iran, North Korea, Sudan, Syria or the Crimea region,
+or to any person or organization on or affiliated with the Department of
+Commerce lists of Denied Persons, Unverified Parties or Restricted Entities, or
+otherwise in violation of any such restrictions or regulations.
 
 
 ## SDWebImage
 
-Copyright (c) 2009 Olivier Poitrey <rs@dailymotion.com>
+Copyright (c) 2016 Olivier Poitrey rs@dailymotion.com
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

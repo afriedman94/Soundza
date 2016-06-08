@@ -10,4 +10,7 @@
 
 @implementation RLMPlaylist
 
++ (NSArray *)requiredProperties {
+    return @[@"title", @"createdAt"];
+}
 @end

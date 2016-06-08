@@ -10,4 +10,8 @@
 
 @implementation RLMTrack
 
+//Required as of Realm .96 - A migration will probably be necessary in the future if project is expanded.
++ (NSArray *)requiredProperties {
+    return @[@"titleString", @"createdAt", @"usernameString", @"streamURLString", @"artworkURLString"];
+}
 @end

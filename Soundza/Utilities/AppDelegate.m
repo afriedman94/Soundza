@@ -10,12 +10,18 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PlaylistManager.h"
 #import "PlayerManager.h"
+#import "iRateManager.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
++(void)initialize {
+
+    [iRateManager setUp];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    

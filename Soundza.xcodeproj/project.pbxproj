@@ -59,6 +59,9 @@
 		189950191BAA861C00AEA795 /* ReplaySong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189950171BAA861C00AEA795 /* ReplaySong@2x.png */; };
 		1899501C1BAA889200AEA795 /* ShufflePlay2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899501B1BAA889200AEA795 /* ShufflePlay2@2x.png */; };
 		18E2BB4C1BB5FBEF00366016 /* PlaylistsAsset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */; };
+		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
+		4974A0211D07981500E3F5F1 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A01F1D07981500E3F5F1 /* iRate.m */; };
+		4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0241D079F8A00E3F5F1 /* iRateManager.m */; };
 		B95885B332F1329B4E5B6868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04449D7A4393601368ECD5E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +157,11 @@
 		18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlaylistsAsset@2x.png"; sourceTree = "<group>"; };
 		1AD9D907A69FB546F7B1BAD4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1F6FDF458636676E0A805C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4974A01D1D07981500E3F5F1 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		4974A01E1D07981500E3F5F1 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		4974A01F1D07981500E3F5F1 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		4974A0231D079F8A00E3F5F1 /* iRateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRateManager.h; sourceTree = "<group>"; };
+		4974A0241D079F8A00E3F5F1 /* iRateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRateManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +249,7 @@
 		18994F8F1B8F8BE400AEA795 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4974A0221D0799C900E3F5F1 /* iRate */,
 				18994FE01B90F93300AEA795 /* Assets */,
 				18994F6D1B8F8A4400AEA795 /* AppDelegate.h */,
 				18994F6E1B8F8A4400AEA795 /* AppDelegate.m */,
@@ -365,6 +374,18 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		4974A0221D0799C900E3F5F1 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				4974A01D1D07981500E3F5F1 /* iRate.bundle */,
+				4974A01E1D07981500E3F5F1 /* iRate.h */,
+				4974A01F1D07981500E3F5F1 /* iRate.m */,
+				4974A0231D079F8A00E3F5F1 /* iRateManager.h */,
+				4974A0241D079F8A00E3F5F1 /* iRateManager.m */,
+			);
+			name = iRate;
+			sourceTree = "<group>";
+		};
 		5ACBFF33AA453EAC325A276E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +456,7 @@
 				TargetAttributes = {
 					18994F651B8F8A4400AEA795 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 7757B4WUKZ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -484,6 +506,7 @@
 				18994FCA1B90C6EC00AEA795 /* Play@2x.png in Resources */,
 				18994FE91B9B71D200AEA795 /* CheckMark@2x.png in Resources */,
 				1899501C1BAA889200AEA795 /* ShufflePlay2@2x.png in Resources */,
+				4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */,
 				18E2BB4C1BB5FBEF00366016 /* PlaylistsAsset@2x.png in Resources */,
 				18994FB21B8F90E600AEA795 /* StreamBlack@2x.png in Resources */,
 				189950191BAA861C00AEA795 /* ReplaySong@2x.png in Resources */,
@@ -578,6 +601,8 @@
 				18994FC41B8FA53900AEA795 /* SDTrack.m in Sources */,
 				189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
+				4974A0211D07981500E3F5F1 /* iRate.m in Sources */,
+				4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */,
 				18994FA61B8F8E1800AEA795 /* SDSearchTableViewController.m in Sources */,
 				18994FC11B8F99EA00AEA795 /* SDSearchResultsTableViewCell.m in Sources */,
 				18994FE51B9B683300AEA795 /* SDQueueTableViewCell.m in Sources */,
@@ -715,6 +740,7 @@
 			baseConfigurationReference = 1AD9D907A69FB546F7B1BAD4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Soundza/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -729,6 +755,7 @@
 			baseConfigurationReference = 1F6FDF458636676E0A805C00 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Soundza/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
