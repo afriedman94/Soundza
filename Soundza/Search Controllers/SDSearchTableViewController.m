@@ -15,6 +15,8 @@ static NSString *const KTableViewReuseIdentitifer = @"Cell";
 static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/6710916626";
 
 @interface SDSearchTableViewController ()
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *generes;
 @property (assign ,nonatomic) BOOL fromSearch;
@@ -28,6 +30,9 @@ static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/67109166
     
     self.generes = [SDSoundCloudAPI listOfGenres];
     self.searchBar.delegate = self;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     [self setupAdBanner];
 }

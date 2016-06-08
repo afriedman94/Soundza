@@ -26,6 +26,6 @@
     [iRate sharedInstance].daysUntilPrompt = 5;
     
     //Remove for deployment
-    [iRate sharedInstance].previewMode = YES;
+//    [iRate sharedInstance].previewMode = YES;
 }
 @end

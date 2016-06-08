@@ -31,13 +31,11 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
     
     [self setupAdBanner];
     
-    self.navigationItem.title = self.genreString ? self.genreString : self.searchString;
-    
     self.refreshController = [[UIRefreshControl alloc]init];
     [self setRefreshControl:self.refreshController];
     [self.refreshController addTarget:self action:@selector(refreshControlActivated:) forControlEvents:UIControlEventValueChanged];
     
-     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-self.refreshControl.frame.size.height) animated:YES];
+     [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-self.refreshController.frame.size.height) animated:YES];
     [self populateDataSource];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(playerUpdatedNotification:) name:@"updatedPlayer" object:nil];

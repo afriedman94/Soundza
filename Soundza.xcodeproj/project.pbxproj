@@ -62,6 +62,7 @@
 		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
 		4974A0211D07981500E3F5F1 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A01F1D07981500E3F5F1 /* iRate.m */; };
 		4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0241D079F8A00E3F5F1 /* iRateManager.m */; };
+		4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */; };
 		B95885B332F1329B4E5B6868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04449D7A4393601368ECD5E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,8 @@
 		4974A01F1D07981500E3F5F1 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		4974A0231D079F8A00E3F5F1 /* iRateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRateManager.h; sourceTree = "<group>"; };
 		4974A0241D079F8A00E3F5F1 /* iRateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRateManager.m; sourceTree = "<group>"; };
+		4974A0261D07B12700E3F5F1 /* SDSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSearchResultsViewController.h; sourceTree = "<group>"; };
+		4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSearchResultsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +283,8 @@
 				18994FC01B8F99EA00AEA795 /* SDSearchResultsTableViewCell.m */,
 				18994FBC1B8F993F00AEA795 /* SDSearchResultsTableViewController.h */,
 				18994FBD1B8F993F00AEA795 /* SDSearchResultsTableViewController.m */,
+				4974A0261D07B12700E3F5F1 /* SDSearchResultsViewController.h */,
+				4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */,
 				18994FA41B8F8E1800AEA795 /* SDSearchTableViewController.h */,
 				18994FA51B8F8E1800AEA795 /* SDSearchTableViewController.m */,
 				18994F941B8F8D2000AEA795 /* Search.storyboard */,
@@ -602,6 +607,7 @@
 				189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
 				4974A0211D07981500E3F5F1 /* iRate.m in Sources */,
+				4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */,
 				4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */,
 				18994FA61B8F8E1800AEA795 /* SDSearchTableViewController.m in Sources */,
 				18994FC11B8F99EA00AEA795 /* SDSearchResultsTableViewCell.m in Sources */,
