@@ -38,30 +38,44 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="15" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="aJ9-GY-vLT">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="454"/>
                                 <color key="backgroundColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Rtc-1B-Xgf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Lq-MY1" customClass="GADBannerView">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-TX-uMT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="XUb-ph-8VD"/>
+                                                <constraint firstAttribute="height" constant="44" id="QmM-cL-iy4"/>
                                             </constraints>
-                                        </view>
+                                            <items>
+                                                <barButtonItem title="Edit" id="vZ5-IM-vWa">
+                                                    <color key="tintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="editBarButtonPressed:" destination="76G-HN-Of5" id="Syy-29-VUD"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="hgS-1p-Rch"/>
+                                                <barButtonItem title="Rename" id="KCb-9g-lPU">
+                                                    <color key="tintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="renameBarButtonPressed:" destination="76G-HN-Of5" id="EkX-nS-jpr"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </items>
+                                        </toolbar>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="Txe-Lq-MY1" firstAttribute="top" secondItem="Rtc-1B-Xgf" secondAttribute="top" id="jU4-rM-3wG"/>
-                                        <constraint firstAttribute="trailing" secondItem="Txe-Lq-MY1" secondAttribute="trailing" id="oah-o1-O1q"/>
-                                        <constraint firstItem="Txe-Lq-MY1" firstAttribute="leading" secondItem="Rtc-1B-Xgf" secondAttribute="leading" id="wve-RT-qRB"/>
+                                        <constraint firstItem="EHc-TX-uMT" firstAttribute="top" secondItem="Rtc-1B-Xgf" secondAttribute="top" id="QC6-NP-FJW"/>
+                                        <constraint firstAttribute="trailing" secondItem="EHc-TX-uMT" secondAttribute="trailing" id="kcI-hr-baG"/>
+                                        <constraint firstItem="EHc-TX-uMT" firstAttribute="leading" secondItem="Rtc-1B-Xgf" secondAttribute="leading" id="yTS-Xg-7j9"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Playlist" rowHeight="70" id="G4c-7W-81z" customClass="SDPlaylistTableViewCell">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="94" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4c-7W-81z" id="pRJ-Mk-uky">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -112,60 +126,139 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-TX-uMT">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="Edit" id="vZ5-IM-vWa">
-                                        <color key="tintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="editBarButtonPressed:" destination="76G-HN-Of5" id="Syy-29-VUD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hgS-1p-Rch"/>
-                                    <barButtonItem title="Rename" id="KCb-9g-lPU">
-                                        <color key="tintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="renameBarButtonPressed:" destination="76G-HN-Of5" id="EkX-nS-jpr"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Lq-MY1" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GQl-RZ-aMe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vKX-ZS-O6y" firstAttribute="centerY" secondItem="e2n-UV-YKT" secondAttribute="centerY" constant="-33.5" id="2hC-vh-pxg"/>
                             <constraint firstItem="4dH-mk-IgV" firstAttribute="centerY" secondItem="e2n-UV-YKT" secondAttribute="centerY" constant="29.5" id="7Cz-rx-YYi"/>
                             <constraint firstItem="7ON-mO-ZTu" firstAttribute="top" secondItem="aJ9-GY-vLT" secondAttribute="bottom" id="9Oh-Yw-H5n"/>
-                            <constraint firstItem="EHc-TX-uMT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" id="D3s-FU-9lU"/>
                             <constraint firstAttribute="trailing" secondItem="aJ9-GY-vLT" secondAttribute="trailing" id="Efb-fL-k0I"/>
-                            <constraint firstItem="aJ9-GY-vLT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" constant="44" id="Hln-AA-dGZ"/>
+                            <constraint firstItem="aJ9-GY-vLT" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" constant="50" id="Hln-AA-dGZ"/>
+                            <constraint firstItem="Txe-Lq-MY1" firstAttribute="top" secondItem="ZNA-8Q-EDZ" secondAttribute="bottom" id="VM0-jk-Zaz"/>
                             <constraint firstItem="vKX-ZS-O6y" firstAttribute="centerX" secondItem="e2n-UV-YKT" secondAttribute="centerX" id="exj-lU-hxS"/>
-                            <constraint firstItem="EHc-TX-uMT" firstAttribute="leading" secondItem="e2n-UV-YKT" secondAttribute="leading" id="jDU-8B-dy6"/>
+                            <constraint firstAttribute="trailing" secondItem="Txe-Lq-MY1" secondAttribute="trailing" id="gh5-5u-O3f"/>
                             <constraint firstItem="4dH-mk-IgV" firstAttribute="centerX" secondItem="e2n-UV-YKT" secondAttribute="centerX" id="p18-sY-wFn"/>
-                            <constraint firstAttribute="trailing" secondItem="EHc-TX-uMT" secondAttribute="trailing" id="r9U-tH-PwG"/>
                             <constraint firstItem="aJ9-GY-vLT" firstAttribute="leading" secondItem="e2n-UV-YKT" secondAttribute="leading" id="sDo-Is-836"/>
+                            <constraint firstItem="Txe-Lq-MY1" firstAttribute="leading" secondItem="e2n-UV-YKT" secondAttribute="leading" id="uD9-Nr-qxO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zDB-ni-MlD">
                         <barButtonItem key="leftBarButtonItem" image="List.png" id="mgh-gT-UB9">
+                            <color key="tintColor" red="0.96229046583175659" green="0.3578396737575531" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="playlistNavButtonPressed:" destination="76G-HN-Of5" id="VUq-WW-vpq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Notification-Cog.png" id="IHH-jJ-YiF">
+                            <connections>
+                                <action selector="settingsCogPressed:" destination="76G-HN-Of5" id="BcF-nV-TKA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bannerView" destination="Txe-Lq-MY1" id="Myz-IO-m6F"/>
+                        <outlet property="cogBarButton" destination="IHH-jJ-YiF" id="XKo-Jr-Vyl"/>
                         <outlet property="editBarButton" destination="vZ5-IM-vWa" id="4XQ-bN-taV"/>
                         <outlet property="renameBarButton" destination="KCb-9g-lPU" id="n98-W1-27H"/>
                         <outlet property="tableView" destination="aJ9-GY-vLT" id="z9a-t9-YRE"/>
                         <outlet property="toolBar" destination="EHc-TX-uMT" id="Orc-zE-IDj"/>
                         <segue destination="JC6-1G-eQ1" kind="presentation" identifier="toPlaylistsVC" modalTransitionStyle="coverVertical" id="pfY-lC-IFM"/>
+                        <segue destination="WIv-2v-C7k" kind="show" identifier="toSettingsVC" id="OPW-2N-fgz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8IC-Uk-o6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="664" y="383"/>
+        </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="pYt-2X-rSw">
+            <objects>
+                <tableViewController id="WIv-2v-C7k" customClass="SDSettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="18" sectionFooterHeight="18" id="8TZ-KY-rcF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Remove Ads" id="pPA-Jz-EoH">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="43G-3z-b8s">
+                                        <rect key="frame" x="0.0" y="114" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="43G-3z-b8s" id="dxQ-Y6-uTy">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remove Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KST-1X-dU1">
+                                                    <rect key="frame" x="8" y="16" width="198" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="oQ0-2h-Bje">
+                                <string key="headerTitle">If you enjoy Soundza as much as we enjoyed creating it, consider rating Soundza in the app store. For a limited time, rating will grant 5 days ad free!</string>
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="bPy-qK-3sA">
+                                        <rect key="frame" x="0.0" y="283" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bPy-qK-3sA" id="hqb-Y9-Ehg">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate In App Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-K3-2R8">
+                                                    <rect key="frame" x="8" y="16" width="198" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Have an issue or suggestion? " id="zDd-Xx-bRO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="vX3-g1-WxW">
+                                        <rect key="frame" x="0.0" y="404" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vX3-g1-WxW" id="Bfc-tt-QHh">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGp-ne-5Dc">
+                                                    <rect key="frame" x="8" y="16" width="198" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="WIv-2v-C7k" id="j2G-Sj-akL"/>
+                            <outlet property="delegate" destination="WIv-2v-C7k" id="fk6-ax-jFQ"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2qP-dM-8RC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063" y="383"/>
         </scene>
         <!--Playlists View Controller-->
         <scene sceneID="Xsy-cT-dsx">
@@ -358,6 +451,7 @@
     <resources>
         <image name="CheckMarkOrange.png" width="33" height="31"/>
         <image name="List.png" width="22" height="15"/>
+        <image name="Notification-Cog.png" width="28" height="30"/>
         <image name="PlaylistsAsset.png" width="60" height="60"/>
         <image name="Plus.png" width="31" height="31"/>
     </resources>

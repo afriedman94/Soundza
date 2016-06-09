@@ -11,6 +11,7 @@
 #import "PlaylistManager.h"
 #import "PlayerManager.h"
 #import "iRateManager.h"
+#import "SDSettingsNotificationManager.h"
 
 @interface AppDelegate ()
 
@@ -59,6 +60,7 @@
     
     RLMPlaylist *firstPlaylist = [[RLMPlaylist objectsWhere:@"isCurrent = YES"]firstObject];
     [PlaylistManager sharedManager].playlist = (RLMPlaylist *)firstPlaylist;
+    
     
     
     return YES;

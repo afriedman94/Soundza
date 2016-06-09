@@ -11,11 +11,14 @@
 #import "SDPlaylistTableViewCell.h"
 #import "PlayerManager.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "iRate.h"
+#import "SDSettingsNotificationManager.h"
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlist";
 static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/8545746621";
 
 @interface SDPlaylistViewController ()
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *cogBarButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *tracks;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
@@ -40,6 +43,14 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
     [self.tableView setEditing:YES];
     self.tableView.allowsSelectionDuringEditing = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    if ([SDSettingsNotificationManager userHasTappedNotification]) {
+        self.cogBarButton.image = [[UIImage imageNamed:@"Orange-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    else {
+        self.cogBarButton.image = [[UIImage imageNamed:@"Notification-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    }
     
     self.editBarButton.tintColor = [UIColor colorWithRed:0.981 green:0.347 blue:0 alpha:1];
     self.renameBarButton.tintColor = [UIColor colorWithRed:0.981 green:0.347 blue:0 alpha:1];
@@ -181,6 +192,14 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
 }
 
 #pragma mark - Buttons
+- (IBAction)settingsCogPressed:(UIBarButtonItem *)sender {
+    
+    if (![SDSettingsNotificationManager userHasTappedNotification]) {
+        [SDSettingsNotificationManager setNotificationHidden:YES];
+        self.cogBarButton.image = [[UIImage imageNamed:@"Orange-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    [self performSegueWithIdentifier:@"toSettingsVC" sender:nil];
+}
 
 - (IBAction)editBarButtonPressed:(id)sender
 {
@@ -289,6 +308,8 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
     [self.bannerView loadRequest:request];
     
 }
+
+
 
 -(void)dealloc
 {
