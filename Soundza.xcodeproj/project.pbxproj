@@ -55,10 +55,11 @@
 		1899500E1BA099CD00AEA795 /* SDPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899500D1BA099CD00AEA795 /* SDPlaylistsViewController.m */; };
 		189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189950101BA09CF500AEA795 /* SDPlaylistsTableViewCell.m */; };
 		189950141BA4FFEE00AEA795 /* SDCreatePlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189950131BA4FFEE00AEA795 /* SDCreatePlaylistTableViewCell.m */; };
-		189950161BAA7A3500AEA795 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189950151BAA7A3500AEA795 /* iAd.framework */; };
 		189950191BAA861C00AEA795 /* ReplaySong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189950171BAA861C00AEA795 /* ReplaySong@2x.png */; };
 		1899501C1BAA889200AEA795 /* ShufflePlay2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899501B1BAA889200AEA795 /* ShufflePlay2@2x.png */; };
 		18E2BB4C1BB5FBEF00366016 /* PlaylistsAsset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */; };
+		491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */; };
+		491BEA9C1D0A4EAC00789B55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */; };
 		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
 		4974A0211D07981500E3F5F1 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A01F1D07981500E3F5F1 /* iRate.m */; };
 		4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0241D079F8A00E3F5F1 /* iRateManager.m */; };
@@ -164,6 +165,9 @@
 		18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlaylistsAsset@2x.png"; sourceTree = "<group>"; };
 		1AD9D907A69FB546F7B1BAD4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1F6FDF458636676E0A805C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		491BEA981D0A40F100789B55 /* UIColor+SoundzaColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SoundzaColors.h"; sourceTree = "<group>"; };
+		491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SoundzaColors.m"; sourceTree = "<group>"; };
+		491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4974A01D1D07981500E3F5F1 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		4974A01E1D07981500E3F5F1 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		4974A01F1D07981500E3F5F1 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
@@ -188,7 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				189950161BAA7A3500AEA795 /* iAd.framework in Frameworks */,
+				491BEA9C1D0A4EAC00789B55 /* StoreKit.framework in Frameworks */,
 				B95885B332F1329B4E5B6868 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,8 @@
 				18994FB31B8F94BC00AEA795 /* SDSoundCloudAPI.h */,
 				18994FB41B8F94BC00AEA795 /* SDSoundCloudAPI.m */,
 				18994FCE1B90CEBE00AEA795 /* SliderHandle@2x.png */,
+				491BEA981D0A40F100789B55 /* UIColor+SoundzaColors.h */,
+				491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 		5ACBFF33AA453EAC325A276E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */,
 				189950151BAA7A3500AEA795 /* iAd.framework */,
 				04449D7A4393601368ECD5E6 /* libPods.a */,
 			);
@@ -645,6 +652,7 @@
 				189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */,
 				49EFD3181D08F7E200C750E8 /* SDSettingsTableViewController.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
+				491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */,
 				4974A0211D07981500E3F5F1 /* iRate.m in Sources */,
 				4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */,
 				4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */,
