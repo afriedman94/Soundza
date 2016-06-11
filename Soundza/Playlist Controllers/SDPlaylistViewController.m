@@ -13,11 +13,14 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "iRate.h"
 #import "SDSettingsNotificationManager.h"
+#import "SDAdMobConfigurer.h"
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlist";
 static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/8545746621";
 
-@interface SDPlaylistViewController ()
+@interface SDPlaylistViewController () <SKPaymentTransactionObserver>
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewYConst;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cogBarButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *tracks;
@@ -300,20 +303,43 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
 
 }
 
--(void)setupAdBanner{
-    
-    self.bannerView.adUnitID = kPlaylistAdBannerId;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
-    
-}
-
-
-
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+}
+
+#pragma mark - Ads
+
+-(void)setupAdBanner{
+    
+    BOOL adsAreRemoved = [SDAdMobConfigurer configureBanner:self.bannerView withId:kPlaylistAdBannerId forController:self];
+    if (adsAreRemoved) {
+        self.tableViewYConst.constant = 0;
+    }
+    else {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    }
+}
+
+-(void)hideBanner {
+    self.bannerView.hidden = true;
+    self.tableViewYConst.constant = 0;
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    for(SKPaymentTransaction *transaction in transactions){
+        switch(transaction.transactionState){
+            case SKPaymentTransactionStatePurchased:
+                NSLog(@"Transaction state -> Purchased");
+                [self hideBanner];
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"Transaction state -> Restored");
+                [self hideBanner];
+                break;
+        }
+    }
 }
 
 @end

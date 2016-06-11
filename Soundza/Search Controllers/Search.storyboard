@@ -18,7 +18,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xI6-qU-EY7" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="R3i-Gk-g12"/>
                                 </constraints>
@@ -47,13 +47,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="UBF-Qj-Htz" secondAttribute="trailing" id="9N9-RV-8Bz"/>
-                            <constraint firstItem="UBF-Qj-Htz" firstAttribute="leading" secondItem="ob4-ky-bE0" secondAttribute="leading" id="KSV-AP-nKA"/>
+                            <constraint firstItem="UBF-Qj-Htz" firstAttribute="top" secondItem="o1j-hU-8B6" secondAttribute="bottom" constant="50" id="AsR-ju-vGs"/>
+                            <constraint firstItem="UBF-Qj-Htz" firstAttribute="leading" secondItem="ob4-ky-bE0" secondAttribute="leading" id="Np1-7r-uPe"/>
                             <constraint firstItem="xI6-qU-EY7" firstAttribute="top" secondItem="o1j-hU-8B6" secondAttribute="bottom" id="Uyu-CL-eVx"/>
-                            <constraint firstItem="UBF-Qj-Htz" firstAttribute="top" secondItem="xI6-qU-EY7" secondAttribute="bottom" id="Ywn-Xp-BuR"/>
+                            <constraint firstAttribute="trailing" secondItem="UBF-Qj-Htz" secondAttribute="trailing" id="YsE-DK-8aR"/>
+                            <constraint firstItem="XbD-Uc-KTZ" firstAttribute="top" secondItem="UBF-Qj-Htz" secondAttribute="bottom" id="kqd-qa-li9"/>
                             <constraint firstAttribute="trailing" secondItem="xI6-qU-EY7" secondAttribute="trailing" id="nWs-kg-qdF"/>
                             <constraint firstItem="xI6-qU-EY7" firstAttribute="leading" secondItem="ob4-ky-bE0" secondAttribute="leading" id="yLc-3V-yfI"/>
-                            <constraint firstItem="XbD-Uc-KTZ" firstAttribute="top" secondItem="UBF-Qj-Htz" secondAttribute="bottom" id="zFx-ee-5Sn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="NNu-zB-uiW"/>
@@ -62,6 +62,7 @@
                         <outlet property="bannerView" destination="xI6-qU-EY7" id="MWl-pZ-Vmn"/>
                         <outlet property="searchBar" destination="VkU-0V-9db" id="Yf2-rT-rEn"/>
                         <outlet property="tableView" destination="UBF-Qj-Htz" id="X1e-ue-0uE"/>
+                        <outlet property="tableViewYConst" destination="AsR-ju-vGs" id="onN-e7-Ap4"/>
                         <segue destination="WGQ-sj-tvq" kind="show" identifier="toResultsVC" id="te2-QA-Qws"/>
                     </connections>
                 </viewController>
@@ -177,7 +178,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxq-t4-8t2" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="moe-lU-WOI"/>
                                 </constraints>
@@ -191,19 +192,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zMu-4X-wiT" firstAttribute="top" secondItem="qQP-6f-IPs" secondAttribute="bottom" id="2t6-uI-AUh"/>
                             <constraint firstAttribute="trailing" secondItem="zxq-t4-8t2" secondAttribute="trailing" id="9v9-nr-YYm"/>
-                            <constraint firstAttribute="trailing" secondItem="qQP-6f-IPs" secondAttribute="trailing" id="Ctt-Vk-Z5R"/>
-                            <constraint firstItem="zMu-4X-wiT" firstAttribute="top" secondItem="qQP-6f-IPs" secondAttribute="bottom" id="JAv-34-RKg"/>
+                            <constraint firstAttribute="trailing" secondItem="qQP-6f-IPs" secondAttribute="trailing" id="DKV-bn-MtY"/>
                             <constraint firstItem="zxq-t4-8t2" firstAttribute="leading" secondItem="scw-vq-gDw" secondAttribute="leading" id="S5P-w8-JcR"/>
-                            <constraint firstItem="qQP-6f-IPs" firstAttribute="leading" secondItem="scw-vq-gDw" secondAttribute="leading" id="d9g-Kf-8Xb"/>
-                            <constraint firstItem="qQP-6f-IPs" firstAttribute="top" secondItem="zxq-t4-8t2" secondAttribute="bottom" id="hK8-P5-vDt"/>
+                            <constraint firstItem="qQP-6f-IPs" firstAttribute="leading" secondItem="scw-vq-gDw" secondAttribute="leading" id="h1Y-IR-GM6"/>
                             <constraint firstItem="zxq-t4-8t2" firstAttribute="top" secondItem="yEQ-Q0-HGW" secondAttribute="bottom" id="jV9-sF-Ozb"/>
+                            <constraint firstItem="qQP-6f-IPs" firstAttribute="top" secondItem="yEQ-Q0-HGW" secondAttribute="bottom" constant="50" id="mEe-Ik-eQq"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="bannerView" destination="zxq-t4-8t2" id="lPi-MO-Fvw"/>
                         <outlet property="containerView" destination="qQP-6f-IPs" id="FET-MY-3Fj"/>
+                        <outlet property="containerViewYConst" destination="mEe-Ik-eQq" id="JHs-so-LzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svc-EM-LDX" userLabel="First Responder" sceneMemberID="firstResponder"/>

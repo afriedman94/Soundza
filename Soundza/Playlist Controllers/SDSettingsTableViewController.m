@@ -10,10 +10,11 @@
 #import <MessageUI/MessageUI.h>
 #import "UIColor+SoundzaColors.h"
 #import <StoreKit/StoreKit.h>
+#import "SDPaymentManager.h"
 
-static NSString *const kRemoveAdsProductIdentifier = @"com.soundza.removeads";
-
-@interface SDSettingsTableViewController () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+@interface SDSettingsTableViewController () <SDPaymentManagerDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *removeAdsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *restorePurchaseLabel;
 @end
 
 @implementation SDSettingsTableViewController
@@ -22,6 +23,8 @@ static NSString *const kRemoveAdsProductIdentifier = @"com.soundza.removeads";
     [super viewDidLoad];
     
     self.navigationItem.title = @"Settings";
+    [SDPaymentManager sharedInstance].delegate = self;
+    [self setDisplay];
     
 }
 
@@ -29,23 +32,24 @@ static NSString *const kRemoveAdsProductIdentifier = @"com.soundza.removeads";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && ![[SDPaymentManager sharedInstance] adsAreRemoved]) {
         if(indexPath.row == 0){
-            [self removeAdsPressed];
+            [[SDPaymentManager sharedInstance] beginRemovingAds];
         }
         else {
-            [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-            [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+            [[SDPaymentManager sharedInstance] beginRestoringAds];
         }
     }
     else if (indexPath.section == 1) {
         NSLog(@"Rate");
+        [self rateApp];
     }
     else if (indexPath.section == 2) {
         [self composeMail];
     }
     else if (indexPath.section == 3) {
         NSLog(@"Send to friend");
+        [self shareToFriends];
     }
 }
 
@@ -65,8 +69,8 @@ static NSString *const kRemoveAdsProductIdentifier = @"com.soundza.removeads";
     
     // Configure the fields of the interface.
     [composeVC setToRecipients:@[@"soundzaapp@gmail.com"]];
-    [composeVC setSubject:@"Hi Soundza Team"];
-    [composeVC setMessageBody:@"Hello, " isHTML:NO];
+    [composeVC setSubject:@"Feedback for Soundza App"];
+    [composeVC setMessageBody:@"Hello Soundza Team, " isHTML:NO];
     
     // Present the view controller modally.
     [self presentViewController:composeVC animated:YES completion:nil];
@@ -92,85 +96,63 @@ static NSString *const kRemoveAdsProductIdentifier = @"com.soundza.removeads";
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-#pragma mark - Remove Ads
+#pragma mark - Set Display
 
--(void)removeAdsPressed
-{
-    if([SKPaymentQueue canMakePayments]){
-        NSLog(@"User can make payments");
-        SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:kRemoveAdsProductIdentifier]];
-        productsRequest.delegate = self;
-        [productsRequest start];
-    }
-    else{
-        NSLog(@"User cannot make payments due to parental controls");
+-(void)setDisplay {
+    
+    if ([[SDPaymentManager sharedInstance] adsAreRemoved]) {
+        self.removeAdsLabel.alpha = .5;
+        self.restorePurchaseLabel.alpha = .5;
     }
 }
 
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
-    SKProduct *validProduct = nil;
-    int count = [response.products count];
-    if(count > 0){
-        validProduct = [response.products objectAtIndex:0];
-        NSLog(@"Products Available!");
-        [self purchase:validProduct];
-    }
-    else if(!validProduct){
-        NSLog(@"No products available");
-        //this is called if your product id is not valid, this shouldn't be called unless that happens.
-    }
+#pragma mark - Sharing
+
+-(void)shareToFriends {
+    
+    NSString *textToShare = @"Hey, check out this app!";
+    NSURL *appStore = [NSURL URLWithString:@"https://geo.itunes.apple.com/us/app/soundza-free-music-streaming/id1043813927?mt=8"];
+    
+    NSArray *objectsToShare = @[textToShare, appStore];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
-- (void)purchase:(SKProduct *)product{
-    SKPayment *payment = [SKPayment paymentWithProduct:product];
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    [[SKPaymentQueue defaultQueue] addPayment:payment];
-}
+#pragma mark - In App Purchases
 
-- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
-{
-    NSLog(@"received restored transactions: %i", queue.transactions.count);
-    for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
-            //called when the user successfully restores a purchase
-            NSLog(@"Transaction state -> Restored");
-            [self saveAdsRemoved];
-            [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+-(void)purchaseStateDidChange:(SKPaymentTransactionState)state {
+    
+    switch(state){
+        case SKPaymentTransactionStatePurchased:
+            [self setDisplay];
             break;
-        }
+        case SKPaymentTransactionStateRestored:
+            [self showAlertWithTitle:@"Success" message:@"Your ad removal purchase has been restored."];
+            [self setDisplay];
+            break;
     }
 }
 
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
-    for(SKPaymentTransaction *transaction in transactions){
-        switch(transaction.transactionState){
-            case SKPaymentTransactionStatePurchasing:
-                NSLog(@"Transaction state -> Purchasing");
-                break;
-            case SKPaymentTransactionStatePurchased:
-                [self saveAdsRemoved];
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                NSLog(@"Transaction state -> Purchased");
-                break;
-            case SKPaymentTransactionStateRestored:
-                NSLog(@"Transaction state -> Restored");
-                [self saveAdsRemoved];
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateFailed:
-                if(transaction.error.code == SKErrorPaymentCancelled){
-                    NSLog(@"Transaction state -> Cancelled");
-                    //the user cancelled the payment ;(
-                }
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                break;
-        }
-    }
-}
+#pragma mark - Rate App
 
-- (void)saveAdsRemoved{
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"areAdsRemoved"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+-(void)rateApp {
+    
+    NSString *appId = @"1043813927";
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8", appId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end

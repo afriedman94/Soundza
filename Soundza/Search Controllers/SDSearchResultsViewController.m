@@ -9,12 +9,14 @@
 #import "SDSearchResultsViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "SDSearchResultsTableViewController.h"
+#import "SDAdMobConfigurer.h"
 
 static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/4036651825";
 
-@interface SDSearchResultsViewController ()
+@interface SDSearchResultsViewController () <SKPaymentTransactionObserver>
 @property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *containerViewYConst;
 
 @end
 
@@ -23,22 +25,14 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupAdBanner];
-    
      self.navigationItem.title = self.genreString ? self.genreString : self.searchString;
+    
+    [self setupAdBanner];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
--(void)setupAdBanner{
-    
-    self.bannerView.adUnitID = kResultsAdBannerId;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -48,6 +42,44 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
         embed.genreString = self.genreString;
         embed.searchString = self.searchString;
     }
+}
+
+#pragma mark - Ads
+
+-(void)setupAdBanner{
+    
+    BOOL adsAreRemoved = [SDAdMobConfigurer configureBanner:self.bannerView withId:kResultsAdBannerId forController:self];
+    if (adsAreRemoved) {
+        self.containerViewYConst.constant = 0;
+    }
+    else {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    }
+}
+
+-(void)hideBanner {
+    self.bannerView.hidden = true;
+    self.containerViewYConst.constant = 0;
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    for(SKPaymentTransaction *transaction in transactions){
+        switch(transaction.transactionState){
+            case SKPaymentTransactionStatePurchased:
+                NSLog(@"Transaction state -> Purchased");
+                [self hideBanner];
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"Transaction state -> Restored");
+                [self hideBanner];
+                break;
+        }
+    }
+}
+
+-(void)dealloc
+{
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 

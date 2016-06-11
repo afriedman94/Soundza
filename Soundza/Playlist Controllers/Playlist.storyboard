@@ -128,7 +128,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Lq-MY1" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GQl-RZ-aMe"/>
                                 </constraints>
@@ -169,6 +169,7 @@
                         <outlet property="editBarButton" destination="vZ5-IM-vWa" id="4XQ-bN-taV"/>
                         <outlet property="renameBarButton" destination="KCb-9g-lPU" id="n98-W1-27H"/>
                         <outlet property="tableView" destination="aJ9-GY-vLT" id="z9a-t9-YRE"/>
+                        <outlet property="tableViewYConst" destination="Hln-AA-dGZ" id="5qW-UP-VbZ"/>
                         <outlet property="toolBar" destination="EHc-TX-uMT" id="Orc-zE-IDj"/>
                         <segue destination="JC6-1G-eQ1" kind="presentation" identifier="toPlaylistsVC" modalTransitionStyle="coverVertical" id="pfY-lC-IFM"/>
                         <segue destination="WIv-2v-C7k" kind="show" identifier="toSettingsVC" id="OPW-2N-fgz"/>
@@ -214,7 +215,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restore Purchase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukx-mR-Iby">
                                                     <rect key="frame" x="8" y="16" width="198" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -235,7 +236,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate In App Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-K3-2R8">
                                                     <rect key="frame" x="8" y="16" width="198" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -291,6 +292,10 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="removeAdsLabel" destination="KST-1X-dU1" id="yz0-ny-YNc"/>
+                        <outlet property="restorePurchaseLabel" destination="ukx-mR-Iby" id="U59-eR-Egn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qP-dM-8RC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,7 +322,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGe-dZ-8j7" customClass="GADBannerView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="UuB-cj-Iae"/>
                                             </constraints>
@@ -439,13 +444,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0Ov-lx-84T" firstAttribute="top" secondItem="Y5l-ct-J9k" secondAttribute="bottom" id="07C-6U-V2U"/>
+                            <constraint firstItem="Y5l-ct-J9k" firstAttribute="leading" secondItem="86p-QW-q6y" secondAttribute="leading" id="29f-1h-EPV"/>
                             <constraint firstAttribute="trailing" secondItem="8j4-c1-dEJ" secondAttribute="trailing" id="7qf-mA-aSg"/>
-                            <constraint firstItem="Y5l-ct-J9k" firstAttribute="leading" secondItem="86p-QW-q6y" secondAttribute="leading" id="Ql0-cf-Hs8"/>
-                            <constraint firstAttribute="trailing" secondItem="Y5l-ct-J9k" secondAttribute="trailing" id="U8S-Sh-I9r"/>
-                            <constraint firstItem="Y5l-ct-J9k" firstAttribute="top" secondItem="8j4-c1-dEJ" secondAttribute="bottom" id="j59-Vh-pCW"/>
+                            <constraint firstItem="Y5l-ct-J9k" firstAttribute="top" secondItem="8j4-c1-dEJ" secondAttribute="bottom" id="dK1-KH-fAo"/>
+                            <constraint firstItem="0Ov-lx-84T" firstAttribute="top" secondItem="Y5l-ct-J9k" secondAttribute="bottom" id="dLa-z7-VCH"/>
                             <constraint firstItem="8j4-c1-dEJ" firstAttribute="top" secondItem="fBc-No-qXh" secondAttribute="bottom" id="jCM-Mp-wPe"/>
                             <constraint firstItem="8j4-c1-dEJ" firstAttribute="leading" secondItem="86p-QW-q6y" secondAttribute="leading" id="rMI-NC-da8"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5l-ct-J9k" secondAttribute="trailing" id="zil-dF-i8z"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

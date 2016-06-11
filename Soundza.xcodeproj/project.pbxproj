@@ -70,6 +70,8 @@
 		49EFD3151D08F47300C750E8 /* Notification-Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EFD3141D08F47300C750E8 /* Notification-Cog@2x.png */; };
 		49EFD3181D08F7E200C750E8 /* SDSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */; };
 		49EFD31C1D08FD1700C750E8 /* SDSettingsNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */; };
+		49F5CC0E1D0B97F000846931 /* SDPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */; };
+		49F5CC111D0BA00900846931 /* SDAdMobConfigurer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5CC101D0BA00900846931 /* SDAdMobConfigurer.m */; };
 		B95885B332F1329B4E5B6868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04449D7A4393601368ECD5E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +187,10 @@
 		49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsTableViewController.m; sourceTree = "<group>"; };
 		49EFD31A1D08FD1700C750E8 /* SDSettingsNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingsNotificationManager.h; sourceTree = "<group>"; };
 		49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsNotificationManager.m; sourceTree = "<group>"; };
+		49F5CC0C1D0B97F000846931 /* SDPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPaymentManager.h; sourceTree = "<group>"; };
+		49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPaymentManager.m; sourceTree = "<group>"; };
+		49F5CC0F1D0BA00900846931 /* SDAdMobConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAdMobConfigurer.h; sourceTree = "<group>"; };
+		49F5CC101D0BA00900846931 /* SDAdMobConfigurer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAdMobConfigurer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +371,8 @@
 				18994FF71B9DF21100AEA795 /* RLMTrack.m */,
 				18994FC21B8FA53900AEA795 /* SDTrack.h */,
 				18994FC31B8FA53900AEA795 /* SDTrack.m */,
+				49F5CC0F1D0BA00900846931 /* SDAdMobConfigurer.h */,
+				49F5CC101D0BA00900846931 /* SDAdMobConfigurer.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +435,8 @@
 				49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */,
 				49EFD31A1D08FD1700C750E8 /* SDSettingsNotificationManager.h */,
 				49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */,
+				49F5CC0C1D0B97F000846931 /* SDPaymentManager.h */,
+				49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -650,6 +660,7 @@
 				4974A0341D07BDDF00E3F5F1 /* UIImageView+Rotate.m in Sources */,
 				18994FC41B8FA53900AEA795 /* SDTrack.m in Sources */,
 				189950111BA09CF500AEA795 /* SDPlaylistsTableViewCell.m in Sources */,
+				49F5CC111D0BA00900846931 /* SDAdMobConfigurer.m in Sources */,
 				49EFD3181D08F7E200C750E8 /* SDSettingsTableViewController.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
 				491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */,
@@ -663,6 +674,7 @@
 				18994FFB1B9DF48600AEA795 /* RLMPlaylist.m in Sources */,
 				18994F921B8F8C6300AEA795 /* SDTabBarViewController.m in Sources */,
 				1899500E1BA099CD00AEA795 /* SDPlaylistsViewController.m in Sources */,
+				49F5CC0E1D0B97F000846931 /* SDPaymentManager.m in Sources */,
 				49EFD31C1D08FD1700C750E8 /* SDSettingsNotificationManager.m in Sources */,
 				18994FBE1B8F993F00AEA795 /* SDSearchResultsTableViewController.m in Sources */,
 			);

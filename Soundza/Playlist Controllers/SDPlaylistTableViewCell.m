@@ -30,7 +30,6 @@
     self.titleLabel.text = track.titleString;
     self.usernameLabel.text = track.usernameString;
     
-
     if (track.artworkURLString.length)
     {
         NSURL *albumArtURL = [NSURL URLWithString:track.artworkURLString];

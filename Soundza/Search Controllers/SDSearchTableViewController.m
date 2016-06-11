@@ -10,12 +10,14 @@
 #import "SDSoundCloudAPI.h"
 #import "SDSearchResultsTableViewController.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "SDAdMobConfigurer.h"
 
 static NSString *const KTableViewReuseIdentitifer = @"Cell";
 static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/6710916626";
 
-@interface SDSearchTableViewController ()
+@interface SDSearchTableViewController () <SKPaymentTransactionObserver>
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tableViewYConst;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *generes;
@@ -35,6 +37,7 @@ static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/67109166
     self.tableView.dataSource = self;
     
     [self setupAdBanner];
+    
 }
 
 #pragma mark - Table view data source
@@ -106,16 +109,43 @@ static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/67109166
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Ads
 
 
 -(void)setupAdBanner{
     
-    self.bannerView.adUnitID = kGenreAdBannerId;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
-    
+    BOOL adsAreRemoved = [SDAdMobConfigurer configureBanner:self.bannerView withId:kGenreAdBannerId forController:self];
+    if (adsAreRemoved) {
+        self.tableViewYConst.constant = 0;
+    }
+    else {
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    }
+}
+
+-(void)hideBanner {
+    self.bannerView.hidden = true;
+    self.tableViewYConst.constant = 0;
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    for(SKPaymentTransaction *transaction in transactions){
+        switch(transaction.transactionState){
+            case SKPaymentTransactionStatePurchased:
+                NSLog(@"Transaction state -> Purchased");
+                [self hideBanner];
+                break;
+            case SKPaymentTransactionStateRestored:
+                NSLog(@"Transaction state -> Restored");
+                [self hideBanner];
+                break;
+        }
+    }
+}
+
+-(void)dealloc
+{
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 

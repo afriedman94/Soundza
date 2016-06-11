@@ -14,11 +14,9 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
 static NSString *const KSearchResultsTableViewCellReuseID = @"Results";
-static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/4036651825";
 
 @interface SDSearchResultsTableViewController ()
 @property (strong, nonatomic) NSArray *searchResults;
-@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 @property (strong, nonatomic) UIRefreshControl *refreshController;
 @end
 
@@ -29,8 +27,6 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
     
     self.searchResults = [[NSArray alloc]init];
     
-    [self setupAdBanner];
-    
     self.refreshController = [[UIRefreshControl alloc]init];
     [self setRefreshControl:self.refreshController];
     [self.refreshController addTarget:self action:@selector(refreshControlActivated:) forControlEvents:UIControlEventValueChanged];
@@ -40,6 +36,11 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(playerUpdatedNotification:) name:@"updatedPlayer" object:nil];
     
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"updatedPlayer" object:nil];
 }
 
 -(void)refreshControlActivated:(UIRefreshControl *)refreshControl
@@ -99,15 +100,6 @@ static NSString *const kResultsAdBannerId = @"ca-app-pub-9029083903735558/403665
 }
 
 #pragma mark - Private Methods
-
--(void)setupAdBanner{
-    
-    self.bannerView.adUnitID = kResultsAdBannerId;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
-    
-}
 
 
 -(void)populateDataSource

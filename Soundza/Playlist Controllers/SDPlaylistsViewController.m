@@ -11,6 +11,7 @@
 #import "PlaylistManager.h"
 #import "SDCreatePlaylistTableViewCell.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "SDAdMobConfigurer.h"
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlists";
 static NSString *const KTableViewNewReuseIdentitifer = @"New";
@@ -42,12 +43,19 @@ static NSString *const kPlaylistsAdBannerId = @"ca-app-pub-9029083903735558/9743
     
     RLMResults *playlists = [[RLMPlaylist allObjects]sortedResultsUsingProperty:@"createdAt" ascending:YES];
     self.playlists = playlists;
+    
+    BOOL adsAreRemoved = [SDAdMobConfigurer configureBanner:self.bannerView withId:kPlaylistsAdBannerId forController:self];
+    if (adsAreRemoved) {
+        self.bannerView.hidden = true;
+        self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 10)];
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setupAdBanner];
+    
 }
 
 #pragma mark - UITableView Delegate/Data Source
@@ -198,16 +206,6 @@ static NSString *const kPlaylistsAdBannerId = @"ca-app-pub-9029083903735558/9743
         [self.tableView setEditing:YES animated:YES];
     }
 
-}
-
-#pragma mark - Helpers
-
--(void)setupAdBanner{
-    
-    self.bannerView.adUnitID = kPlaylistsAdBannerId;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
 }
 
 @end
