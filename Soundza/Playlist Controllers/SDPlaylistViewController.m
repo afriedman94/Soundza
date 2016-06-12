@@ -11,8 +11,7 @@
 #import "SDPlaylistTableViewCell.h"
 #import "PlayerManager.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
-#import "iRate.h"
-#import "SDSettingsNotificationManager.h"
+#import "SDSettingsManager.h"
 #import "SDAdMobConfigurer.h"
 
 static NSString *const KTableViewReuseIdentitifer = @"Playlist";
@@ -47,12 +46,11 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
     self.tableView.allowsSelectionDuringEditing = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    if ([SDSettingsNotificationManager userHasTappedNotification]) {
+    if (![SDSettingsManager settingsNotificationActive]) {
         self.cogBarButton.image = [[UIImage imageNamed:@"Orange-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     else {
         self.cogBarButton.image = [[UIImage imageNamed:@"Notification-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
     }
     
     self.editBarButton.tintColor = [UIColor colorWithRed:0.981 green:0.347 blue:0 alpha:1];
@@ -66,10 +64,10 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(trackSavedNotification:) name:@"songSaved" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(playerUpdatedNotification:) name:@"updatedPlayer" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(playlistUpdatedNotification:) name:@"playlistUpdated" object:nil];
-
 }
 
 #pragma mark - Notification Center
+
 
 -(void)playerUpdatedNotification:(NSNotification *)notification
 {
@@ -197,8 +195,8 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
 #pragma mark - Buttons
 - (IBAction)settingsCogPressed:(UIBarButtonItem *)sender {
     
-    if (![SDSettingsNotificationManager userHasTappedNotification]) {
-        [SDSettingsNotificationManager setNotificationHidden:YES];
+    if ([SDSettingsManager settingsNotificationActive]) {
+        [SDSettingsManager setNotificationHidden:YES];
         self.cogBarButton.image = [[UIImage imageNamed:@"Orange-Cog.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     [self performSegueWithIdentifier:@"toSettingsVC" sender:nil];
@@ -319,12 +317,19 @@ static NSString *const kPlaylistAdBannerId = @"ca-app-pub-9029083903735558/85457
     }
     else {
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userRatedAppRemoveAdsNotification:) name:@"RatedApp" object:nil];
     }
 }
 
 -(void)hideBanner {
     self.bannerView.hidden = true;
     self.tableViewYConst.constant = 0;
+}
+
+
+-(void)userRatedAppRemoveAdsNotification:(NSNotification *)notification
+{
+    [self hideBanner];
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{

@@ -10,8 +10,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SDTrack.h"
 #import "PlaylistManager.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#import "SDAdMobConfigurer.h"
 
-@interface SDPlayerViewController ()
+@interface SDPlayerViewController () <GADInterstitialDelegate>
+
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -23,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UIButton *replayButton;
 @property (strong, nonatomic) IBOutlet UIButton *shuffleButton;
+
+@property (strong, nonatomic) GADInterstitial *interstitialAd;
 
 - (IBAction)playPauseButtonPressed:(id)sender;
 - (IBAction)skipButtonPressed:(id)sender;
@@ -48,6 +53,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedQueueNotification:) name:@"updatedPlayer" object:nil];
     
     [self setDisplayForCurrentTrack];
+    
+    self.interstitialAd = [self createAndLoadInterstitial];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,6 +63,12 @@
     self.playPauseButton.selected = [PlayerManager sharedManager].playerIsPlaying;
     [self setDisplayForCurrentTrack];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    [self displayAd];
 }
 
 -(void)updatedQueueNotification:(NSNotification *)notification
@@ -251,5 +264,33 @@
     else
         return [NSString stringWithFormat:@"%i:%i", minutes, seconds];
 }
+
+
+#pragma mark - AdMob
+
+-(void)displayAd {
+    SDTrack *track = [PlayerManager sharedManager].currentTrack;
+    srandom(time(NULL));
+    int r = random() % 8;
+    if (track && r == 0 && ![SDAdMobConfigurer adsShouldHide] && [self.interstitialAd isReady]) {
+            [self.interstitialAd presentFromRootViewController:self];
+    }
+}
+
+-(void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    self.interstitialAd = [self createAndLoadInterstitial];
+}
+
+
+- (GADInterstitial *)createAndLoadInterstitial {
+    GADInterstitial *interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-9029083903735558/1110714621"];
+    interstitial.delegate = self;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[@"1c60b6109c966cd0fffe2019d8ebc286"];
+    [interstitial loadRequest:request];
+    return interstitial;
+}
+
 
 @end

@@ -11,10 +11,12 @@
 #import "UIColor+SoundzaColors.h"
 #import <StoreKit/StoreKit.h>
 #import "SDPaymentManager.h"
+#import "SDSettingsManager.h"
 
 @interface SDSettingsTableViewController () <SDPaymentManagerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *removeAdsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restorePurchaseLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fiveDaysFreeLabel;
 @end
 
 @implementation SDSettingsTableViewController
@@ -30,6 +32,24 @@
 
 #pragma mark - Table View Delegate
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"Remove Ads";
+    }
+    else if (section == 1) {
+        
+        if ([SDSettingsManager userHasRatedApp]) {
+            return @"Thank you for rating!";
+        }
+        else return @"If you enjoy Soundza as much as we enjoyed creating it, consider rating Soundza in the app store. For a limited time, rating will grant 5 days ad free!";
+    }
+    else if (section == 2) {
+        return @"Have an issue or suggestion?";
+    }
+    else return @"Suggest this app to a friend";
+}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0 && ![[SDPaymentManager sharedInstance] adsAreRemoved]) {
@@ -41,7 +61,6 @@
         }
     }
     else if (indexPath.section == 1) {
-        NSLog(@"Rate");
         [self rateApp];
     }
     else if (indexPath.section == 2) {
@@ -104,6 +123,10 @@
         self.removeAdsLabel.alpha = .5;
         self.restorePurchaseLabel.alpha = .5;
     }
+    
+    if ([SDSettingsManager userHasRatedApp]) {
+        self.fiveDaysFreeLabel.hidden = true;
+    }
 }
 
 #pragma mark - Sharing
@@ -150,9 +173,14 @@
 -(void)rateApp {
     
     NSString *appId = @"1043813927";
+    //Url string directly to the review page on the store.
     NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8", appId];
     NSURL *url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url];
+    
+    [SDSettingsManager userTappedRateInStore];
+    self.fiveDaysFreeLabel.hidden = true;
+    [self.tableView reloadData];
 }
 
 @end

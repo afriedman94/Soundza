@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SDSettingsNotificationManager : NSObject
+@interface SDSettingsManager : NSObject
++(BOOL)settingsNotificationActive;
 +(BOOL)userHasTappedNotification;
 +(void)setNotificationHidden:(BOOL)hidden;
++(BOOL)userHasRatedApp;
++(void)userTappedRateInStore;
++(BOOL)shouldHideAdsForRating;
 @end

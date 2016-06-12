@@ -61,15 +61,13 @@
 		491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */; };
 		491BEA9C1D0A4EAC00789B55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */; };
 		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
-		4974A0211D07981500E3F5F1 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A01F1D07981500E3F5F1 /* iRate.m */; };
-		4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0241D079F8A00E3F5F1 /* iRateManager.m */; };
 		4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */; };
 		4974A0331D07BDDF00E3F5F1 /* SACenterDiskButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0301D07BDDF00E3F5F1 /* SACenterDiskButton.m */; };
 		4974A0341D07BDDF00E3F5F1 /* UIImageView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0321D07BDDF00E3F5F1 /* UIImageView+Rotate.m */; };
 		49EFD3111D08EDEE00C750E8 /* Orange-Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EFD3101D08EDEE00C750E8 /* Orange-Cog@2x.png */; };
 		49EFD3151D08F47300C750E8 /* Notification-Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EFD3141D08F47300C750E8 /* Notification-Cog@2x.png */; };
 		49EFD3181D08F7E200C750E8 /* SDSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */; };
-		49EFD31C1D08FD1700C750E8 /* SDSettingsNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */; };
+		49EFD31C1D08FD1700C750E8 /* SDSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EFD31B1D08FD1700C750E8 /* SDSettingsManager.m */; };
 		49F5CC0E1D0B97F000846931 /* SDPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */; };
 		49F5CC111D0BA00900846931 /* SDAdMobConfigurer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5CC101D0BA00900846931 /* SDAdMobConfigurer.m */; };
 		B95885B332F1329B4E5B6868 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04449D7A4393601368ECD5E6 /* libPods.a */; };
@@ -171,10 +169,6 @@
 		491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SoundzaColors.m"; sourceTree = "<group>"; };
 		491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4974A01D1D07981500E3F5F1 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
-		4974A01E1D07981500E3F5F1 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
-		4974A01F1D07981500E3F5F1 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
-		4974A0231D079F8A00E3F5F1 /* iRateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRateManager.h; sourceTree = "<group>"; };
-		4974A0241D079F8A00E3F5F1 /* iRateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRateManager.m; sourceTree = "<group>"; };
 		4974A0261D07B12700E3F5F1 /* SDSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSearchResultsViewController.h; sourceTree = "<group>"; };
 		4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSearchResultsViewController.m; sourceTree = "<group>"; };
 		4974A02F1D07BDDF00E3F5F1 /* SACenterDiskButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACenterDiskButton.h; sourceTree = "<group>"; };
@@ -185,8 +179,8 @@
 		49EFD3141D08F47300C750E8 /* Notification-Cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Notification-Cog@2x.png"; sourceTree = "<group>"; };
 		49EFD3161D08F7E200C750E8 /* SDSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingsTableViewController.h; sourceTree = "<group>"; };
 		49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsTableViewController.m; sourceTree = "<group>"; };
-		49EFD31A1D08FD1700C750E8 /* SDSettingsNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingsNotificationManager.h; sourceTree = "<group>"; };
-		49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsNotificationManager.m; sourceTree = "<group>"; };
+		49EFD31A1D08FD1700C750E8 /* SDSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingsManager.h; sourceTree = "<group>"; };
+		49EFD31B1D08FD1700C750E8 /* SDSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingsManager.m; sourceTree = "<group>"; };
 		49F5CC0C1D0B97F000846931 /* SDPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPaymentManager.h; sourceTree = "<group>"; };
 		49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPaymentManager.m; sourceTree = "<group>"; };
 		49F5CC0F1D0BA00900846931 /* SDAdMobConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAdMobConfigurer.h; sourceTree = "<group>"; };
@@ -420,10 +414,6 @@
 			isa = PBXGroup;
 			children = (
 				4974A01D1D07981500E3F5F1 /* iRate.bundle */,
-				4974A01E1D07981500E3F5F1 /* iRate.h */,
-				4974A01F1D07981500E3F5F1 /* iRate.m */,
-				4974A0231D079F8A00E3F5F1 /* iRateManager.h */,
-				4974A0241D079F8A00E3F5F1 /* iRateManager.m */,
 			);
 			name = iRate;
 			sourceTree = "<group>";
@@ -433,8 +423,8 @@
 			children = (
 				49EFD3161D08F7E200C750E8 /* SDSettingsTableViewController.h */,
 				49EFD3171D08F7E200C750E8 /* SDSettingsTableViewController.m */,
-				49EFD31A1D08FD1700C750E8 /* SDSettingsNotificationManager.h */,
-				49EFD31B1D08FD1700C750E8 /* SDSettingsNotificationManager.m */,
+				49EFD31A1D08FD1700C750E8 /* SDSettingsManager.h */,
+				49EFD31B1D08FD1700C750E8 /* SDSettingsManager.m */,
 				49F5CC0C1D0B97F000846931 /* SDPaymentManager.h */,
 				49F5CC0D1D0B97F000846931 /* SDPaymentManager.m */,
 			);
@@ -664,9 +654,7 @@
 				49EFD3181D08F7E200C750E8 /* SDSettingsTableViewController.m in Sources */,
 				18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */,
 				491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */,
-				4974A0211D07981500E3F5F1 /* iRate.m in Sources */,
 				4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */,
-				4974A0251D079F8A00E3F5F1 /* iRateManager.m in Sources */,
 				18994FA61B8F8E1800AEA795 /* SDSearchTableViewController.m in Sources */,
 				18994FC11B8F99EA00AEA795 /* SDSearchResultsTableViewCell.m in Sources */,
 				18994FE51B9B683300AEA795 /* SDQueueTableViewCell.m in Sources */,
@@ -675,7 +663,7 @@
 				18994F921B8F8C6300AEA795 /* SDTabBarViewController.m in Sources */,
 				1899500E1BA099CD00AEA795 /* SDPlaylistsViewController.m in Sources */,
 				49F5CC0E1D0B97F000846931 /* SDPaymentManager.m in Sources */,
-				49EFD31C1D08FD1700C750E8 /* SDSettingsNotificationManager.m in Sources */,
+				49EFD31C1D08FD1700C750E8 /* SDSettingsManager.m in Sources */,
 				18994FBE1B8F993F00AEA795 /* SDSearchResultsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

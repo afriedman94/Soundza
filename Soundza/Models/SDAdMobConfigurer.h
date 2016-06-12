@@ -11,4 +11,5 @@
 
 @interface SDAdMobConfigurer : NSObject
 +(BOOL)configureBanner:(GADBannerView *)bannerView withId:(NSString *)Id forController:(UIViewController *)viewController;
++(BOOL)adsShouldHide;
 @end

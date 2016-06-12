@@ -120,12 +120,18 @@ static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/67109166
     }
     else {
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userRatedAppRemoveAdsNotification:) name:@"RatedApp" object:nil];
     }
 }
 
 -(void)hideBanner {
     self.bannerView.hidden = true;
     self.tableViewYConst.constant = 0;
+}
+
+-(void)userRatedAppRemoveAdsNotification:(NSNotification *)notification
+{
+    [self hideBanner];
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
@@ -146,6 +152,7 @@ static NSString *const kGenreAdBannerId = @"ca-app-pub-9029083903735558/67109166
 -(void)dealloc
 {
     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"RatedApp" object:nil];
 }
 
 

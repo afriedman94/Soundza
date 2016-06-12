@@ -8,6 +8,7 @@
 
 #import "SDAdMobConfigurer.h"
 #import "SDPaymentManager.h"
+#import "SDSettingsManager.h"
 
 @implementation SDAdMobConfigurer
 
@@ -18,7 +19,7 @@
  */
 +(BOOL)configureBanner:(GADBannerView *)bannerView withId:(NSString *)Id forController:(UIViewController *)viewController {
     
-    if ([[SDPaymentManager sharedInstance]adsAreRemoved]){
+    if ([self adsShouldHide]){
         bannerView.hidden = true;
         return true;
     }
@@ -30,5 +31,13 @@
     }
     
     return false;
+}
+
++(BOOL)adsShouldHide
+{
+    if ([[SDPaymentManager sharedInstance]adsAreRemoved] || [SDSettingsManager shouldHideAdsForRating]){
+        return true;
+    }
+    else return false;
 }
 @end

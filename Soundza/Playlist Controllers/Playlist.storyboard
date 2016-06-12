@@ -235,9 +235,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate In App Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-K3-2R8">
-                                                    <rect key="frame" x="8" y="16" width="198" height="37"/>
+                                                    <rect key="frame" x="8" y="24" width="171" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get 5 Days Ad Free!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-14-dG4">
+                                                    <rect key="frame" x="157" y="25" width="179" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -293,6 +299,7 @@
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="fiveDaysFreeLabel" destination="m1c-14-dG4" id="sdi-G5-48z"/>
                         <outlet property="removeAdsLabel" destination="KST-1X-dU1" id="yz0-ny-YNc"/>
                         <outlet property="restorePurchaseLabel" destination="ukx-mR-Iby" id="U59-eR-Egn"/>
                     </connections>

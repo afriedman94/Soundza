@@ -10,19 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PlaylistManager.h"
 #import "PlayerManager.h"
-#import "iRateManager.h"
-#import "SDSettingsNotificationManager.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
-+(void)initialize {
-
-    [iRateManager setUp];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
@@ -60,7 +53,6 @@
     
     RLMPlaylist *firstPlaylist = [[RLMPlaylist objectsWhere:@"isCurrent = YES"]firstObject];
     [PlaylistManager sharedManager].playlist = (RLMPlaylist *)firstPlaylist;
-    
     
     
     return YES;
