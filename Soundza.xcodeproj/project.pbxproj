@@ -43,7 +43,7 @@
 		18994FE51B9B683300AEA795 /* SDQueueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18994FE41B9B683300AEA795 /* SDQueueTableViewCell.m */; };
 		18994FE71B9B71AA00AEA795 /* ActionAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18994FE61B9B71AA00AEA795 /* ActionAlertView.xib */; };
 		18994FE91B9B71D200AEA795 /* CheckMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18994FE81B9B71D200AEA795 /* CheckMark@2x.png */; };
-		18994FEC1B9B729B00AEA795 /* SAActionAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18994FEB1B9B729B00AEA795 /* SAActionAlertView.m */; };
+		18994FEC1B9B729B00AEA795 /* SDActionAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18994FEB1B9B729B00AEA795 /* SDActionAlertView.m */; };
 		18994FEF1B9CA8D000AEA795 /* CheckMarkOrange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18994FED1B9CA8D000AEA795 /* CheckMarkOrange@2x.png */; };
 		18994FF21B9CAB3F00AEA795 /* Plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18994FF11B9CAB3F00AEA795 /* Plus@2x.png */; };
 		18994FF51B9DF09200AEA795 /* PlaylistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18994FF41B9DF09200AEA795 /* PlaylistManager.m */; };
@@ -138,8 +138,8 @@
 		18994FE41B9B683300AEA795 /* SDQueueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDQueueTableViewCell.m; sourceTree = "<group>"; };
 		18994FE61B9B71AA00AEA795 /* ActionAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionAlertView.xib; sourceTree = "<group>"; };
 		18994FE81B9B71D200AEA795 /* CheckMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMark@2x.png"; sourceTree = "<group>"; };
-		18994FEA1B9B729B00AEA795 /* SAActionAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAActionAlertView.h; sourceTree = "<group>"; };
-		18994FEB1B9B729B00AEA795 /* SAActionAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAActionAlertView.m; sourceTree = "<group>"; };
+		18994FEA1B9B729B00AEA795 /* SDActionAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDActionAlertView.h; sourceTree = "<group>"; };
+		18994FEB1B9B729B00AEA795 /* SDActionAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActionAlertView.m; sourceTree = "<group>"; };
 		18994FED1B9CA8D000AEA795 /* CheckMarkOrange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkOrange@2x.png"; sourceTree = "<group>"; };
 		18994FF11B9CAB3F00AEA795 /* Plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@2x.png"; sourceTree = "<group>"; };
 		18994FF31B9DF09200AEA795 /* PlaylistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistManager.h; sourceTree = "<group>"; };
@@ -289,8 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				18994FE61B9B71AA00AEA795 /* ActionAlertView.xib */,
-				18994FEA1B9B729B00AEA795 /* SAActionAlertView.h */,
-				18994FEB1B9B729B00AEA795 /* SAActionAlertView.m */,
+				18994FEA1B9B729B00AEA795 /* SDActionAlertView.h */,
+				18994FEB1B9B729B00AEA795 /* SDActionAlertView.m */,
 				18994F901B8F8C6300AEA795 /* SDTabBarViewController.h */,
 				18994F911B8F8C6300AEA795 /* SDTabBarViewController.m */,
 				4974A02F1D07BDDF00E3F5F1 /* SACenterDiskButton.h */,
@@ -638,7 +638,7 @@
 				18994FD41B90D36500AEA795 /* SAPageRootViewController.m in Sources */,
 				4974A0331D07BDDF00E3F5F1 /* SACenterDiskButton.m in Sources */,
 				189950141BA4FFEE00AEA795 /* SDCreatePlaylistTableViewCell.m in Sources */,
-				18994FEC1B9B729B00AEA795 /* SAActionAlertView.m in Sources */,
+				18994FEC1B9B729B00AEA795 /* SDActionAlertView.m in Sources */,
 				18994F6F1B8F8A4400AEA795 /* AppDelegate.m in Sources */,
 				189950011B9E0C3300AEA795 /* SDPlaylistViewController.m in Sources */,
 				18994FDF1B90DBAE00AEA795 /* PlayerManager.m in Sources */,

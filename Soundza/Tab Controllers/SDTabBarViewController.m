@@ -7,11 +7,9 @@
 //
 
 #import "SDTabBarViewController.h"
-#import "SAActionAlertView.h"
+#import "SDActionAlertView.h"
 
 @interface SDTabBarViewController ()
-@property (strong, nonatomic) SAActionAlertView *alertView;
-@property (strong, nonatomic) SAActionAlertView *saveAlert;
 @end
 
 @implementation SDTabBarViewController
@@ -47,20 +45,23 @@
     //Set the tint color to the SoundCloud orange
     [self.tabBar setTintColor:[UIColor colorWithRed:0.981 green:0.347 blue:0 alpha:1]];
     
-    self.alertView = [[SAActionAlertView alloc]initWithTitle:@"Song Queued" view:self.view];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(songQueuedNotification:) name:@"songQueued" object:nil];
-    self.saveAlert = [[SAActionAlertView alloc]initWithTitle:@"Song Saved" view:self.view];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(songSavedNotification:) name:@"songSaved" object:nil];
 
 }
 -(void)songSavedNotification:(NSNotification *)note
 {
-    [self.saveAlert animate];
+    
+    SDActionAlertView *alert = [[SDActionAlertView alloc]initWithTitle:@"Song Saved"];
+    [self.view addSubview:alert];
+    [alert animate];
 }
 
 -(void)songQueuedNotification:(NSNotification *)note
 {
-    [self.alertView animate];
+    SDActionAlertView *alert = [[SDActionAlertView alloc]initWithTitle:@"Song Queued"];
+    [self.view addSubview:alert];
+    [alert animate];
 }
 
 - (void)dealloc

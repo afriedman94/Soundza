@@ -286,9 +286,7 @@
     GADInterstitial *interstitial =
     [[GADInterstitial alloc] initWithAdUnitID:@"ca-app-pub-9029083903735558/1110714621"];
     interstitial.delegate = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"1c60b6109c966cd0fffe2019d8ebc286"];
-    [interstitial loadRequest:request];
+    [interstitial loadRequest:[GADRequest request]];
     return interstitial;
 }
 
