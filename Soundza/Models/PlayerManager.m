@@ -113,6 +113,8 @@ static NSString *const kSoundCloudClientId = @"376f225bf427445fc4bfb6b99b72e0bf"
         [self.player play];
         self.playerIsPlaying = YES;
     }
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"updatedPlayer" object:nil userInfo:userInfo];
 }
 
 - (void)updateProgressView
@@ -175,6 +177,7 @@ static NSString *const kSoundCloudClientId = @"376f225bf427445fc4bfb6b99b72e0bf"
     self.currentTrack = nil;
     self.player = nil;
     [self.timer invalidate];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"songEnded" object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"updatedPlayer" object:nil];
 }
 

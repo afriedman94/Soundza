@@ -271,7 +271,7 @@
 -(void)displayAd {
     SDTrack *track = [PlayerManager sharedManager].currentTrack;
     srandom(time(NULL));
-    int r = random() % 8;
+    int r = random() % 6;
     if (track && r == 0 && ![SDAdMobConfigurer adsShouldHide] && [self.interstitialAd isReady]) {
             [self.interstitialAd presentFromRootViewController:self];
     }

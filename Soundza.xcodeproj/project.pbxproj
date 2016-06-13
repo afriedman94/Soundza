@@ -58,11 +58,11 @@
 		189950191BAA861C00AEA795 /* ReplaySong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189950171BAA861C00AEA795 /* ReplaySong@2x.png */; };
 		1899501C1BAA889200AEA795 /* ShufflePlay2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899501B1BAA889200AEA795 /* ShufflePlay2@2x.png */; };
 		18E2BB4C1BB5FBEF00366016 /* PlaylistsAsset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */; };
+		490A32B91D0E2A3C00CA6856 /* SDSpinningDiskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A32B81D0E2A3C00CA6856 /* SDSpinningDiskImageView.m */; };
 		491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */; };
 		491BEA9C1D0A4EAC00789B55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */; };
 		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
 		4974A0281D07B12700E3F5F1 /* SDSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */; };
-		4974A0331D07BDDF00E3F5F1 /* SACenterDiskButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0301D07BDDF00E3F5F1 /* SACenterDiskButton.m */; };
 		4974A0341D07BDDF00E3F5F1 /* UIImageView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4974A0321D07BDDF00E3F5F1 /* UIImageView+Rotate.m */; };
 		49EFD3111D08EDEE00C750E8 /* Orange-Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EFD3101D08EDEE00C750E8 /* Orange-Cog@2x.png */; };
 		49EFD3151D08F47300C750E8 /* Notification-Cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EFD3141D08F47300C750E8 /* Notification-Cog@2x.png */; };
@@ -165,14 +165,14 @@
 		18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlaylistsAsset@2x.png"; sourceTree = "<group>"; };
 		1AD9D907A69FB546F7B1BAD4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1F6FDF458636676E0A805C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		490A32B71D0E2A3C00CA6856 /* SDSpinningDiskImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSpinningDiskImageView.h; sourceTree = "<group>"; };
+		490A32B81D0E2A3C00CA6856 /* SDSpinningDiskImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpinningDiskImageView.m; sourceTree = "<group>"; };
 		491BEA981D0A40F100789B55 /* UIColor+SoundzaColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SoundzaColors.h"; sourceTree = "<group>"; };
 		491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SoundzaColors.m"; sourceTree = "<group>"; };
 		491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4974A01D1D07981500E3F5F1 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
 		4974A0261D07B12700E3F5F1 /* SDSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSearchResultsViewController.h; sourceTree = "<group>"; };
 		4974A0271D07B12700E3F5F1 /* SDSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSearchResultsViewController.m; sourceTree = "<group>"; };
-		4974A02F1D07BDDF00E3F5F1 /* SACenterDiskButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACenterDiskButton.h; sourceTree = "<group>"; };
-		4974A0301D07BDDF00E3F5F1 /* SACenterDiskButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACenterDiskButton.m; sourceTree = "<group>"; };
 		4974A0311D07BDDF00E3F5F1 /* UIImageView+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Rotate.h"; sourceTree = "<group>"; };
 		4974A0321D07BDDF00E3F5F1 /* UIImageView+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Rotate.m"; sourceTree = "<group>"; };
 		49EFD3101D08EDEE00C750E8 /* Orange-Cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orange-Cog@2x.png"; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 				18994FEB1B9B729B00AEA795 /* SDActionAlertView.m */,
 				18994F901B8F8C6300AEA795 /* SDTabBarViewController.h */,
 				18994F911B8F8C6300AEA795 /* SDTabBarViewController.m */,
-				4974A02F1D07BDDF00E3F5F1 /* SACenterDiskButton.h */,
-				4974A0301D07BDDF00E3F5F1 /* SACenterDiskButton.m */,
+				490A32B71D0E2A3C00CA6856 /* SDSpinningDiskImageView.h */,
+				490A32B81D0E2A3C00CA6856 /* SDSpinningDiskImageView.m */,
 				4974A0311D07BDDF00E3F5F1 /* UIImageView+Rotate.h */,
 				4974A0321D07BDDF00E3F5F1 /* UIImageView+Rotate.m */,
 				18994F731B8F8A4400AEA795 /* Tab.storyboard */,
@@ -636,7 +636,6 @@
 			files = (
 				18994FB51B8F94BC00AEA795 /* SDSoundCloudAPI.m in Sources */,
 				18994FD41B90D36500AEA795 /* SAPageRootViewController.m in Sources */,
-				4974A0331D07BDDF00E3F5F1 /* SACenterDiskButton.m in Sources */,
 				189950141BA4FFEE00AEA795 /* SDCreatePlaylistTableViewCell.m in Sources */,
 				18994FEC1B9B729B00AEA795 /* SDActionAlertView.m in Sources */,
 				18994F6F1B8F8A4400AEA795 /* AppDelegate.m in Sources */,
@@ -660,6 +659,7 @@
 				18994FE51B9B683300AEA795 /* SDQueueTableViewCell.m in Sources */,
 				18994FAF1B8F8FDB00AEA795 /* SDPlayerViewController.m in Sources */,
 				18994FFB1B9DF48600AEA795 /* RLMPlaylist.m in Sources */,
+				490A32B91D0E2A3C00CA6856 /* SDSpinningDiskImageView.m in Sources */,
 				18994F921B8F8C6300AEA795 /* SDTabBarViewController.m in Sources */,
 				1899500E1BA099CD00AEA795 /* SDPlaylistsViewController.m in Sources */,
 				49F5CC0E1D0B97F000846931 /* SDPaymentManager.m in Sources */,

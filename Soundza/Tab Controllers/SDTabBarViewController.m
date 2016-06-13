@@ -8,6 +8,7 @@
 
 #import "SDTabBarViewController.h"
 #import "SDActionAlertView.h"
+#import "SDSpinningDiskImageView.h"
 
 @interface SDTabBarViewController ()
 @end
@@ -28,18 +29,22 @@
     UIImage *tab1Image = [UIImage imageNamed:@"Search.png"];
     UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:nil image:tab1Image selectedImage:nil];
     item1.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    item1.tag = 0;
     searchVC.tabBarItem = item1;
     
     UIViewController *playerVC = viewControllers[1];
-    UIImage *tab2Image = [UIImage imageNamed:@"StreamBlack.png"];
-    UITabBarItem *item2 = [[UITabBarItem alloc]initWithTitle:nil image:tab2Image selectedImage:nil];
+    SDSpinningDiskImageView *spinner = [[SDSpinningDiskImageView alloc]initWithTabBar:self];
+    [self.tabBar addSubview:spinner];
+    UITabBarItem *item2 = [[UITabBarItem alloc]initWithTitle:nil image:nil selectedImage:nil];
     item2.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    item1.tag = 1;
     playerVC.tabBarItem = item2;
 
     UIViewController *playlistVC = viewControllers[2];
     UIImage *tab3Image = [UIImage imageNamed:@"Playlists.png"];
     UITabBarItem *item3 = [[UITabBarItem alloc]initWithTitle:nil image:tab3Image selectedImage:nil];
     item3.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    item1.tag = 2;
     playlistVC.tabBarItem = item3;
 
     //Set the tint color to the SoundCloud orange
@@ -49,6 +54,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(songSavedNotification:) name:@"songSaved" object:nil];
 
 }
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    [self.tabDelegate tabBarDidSelectItem:item];
+}
+
+
 -(void)songSavedNotification:(NSNotification *)note
 {
     

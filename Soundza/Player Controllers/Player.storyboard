@@ -17,10 +17,10 @@
             </objects>
             <point key="canvasLocation" x="137" y="-288"/>
         </scene>
-        <!--Page Root View Controller-->
+        <!--Player-->
         <scene sceneID="E2b-mt-0LI">
             <objects>
-                <viewController id="SPm-co-tzc" customClass="SAPageRootViewController" sceneMemberID="viewController">
+                <viewController title="Player" id="SPm-co-tzc" customClass="SAPageRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sXe-Ft-YNL"/>
                         <viewControllerLayoutGuide type="bottom" id="Br0-9k-BcX"/>
@@ -47,7 +47,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" title="Clear" id="3GC-FU-gEb">
-                                            <color key="tintColor" red="0.86274509803921573" green="0.20000000000000001" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clearButtonPressed:" destination="SPm-co-tzc" id="fU2-vh-f0f"/>
                                             </connections>
@@ -131,7 +131,7 @@
                                                         <constraint firstAttribute="width" constant="43" id="TUJ-Ph-Tet"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <color key="textColor" red="0.92756050825119019" green="0.37825459241867065" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.96229046579999999" green="0.35783967379999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsg-M0-whW">

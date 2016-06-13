@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SDTabBarDelegate <NSObject>
+-(void)tabBarDidSelectItem:(UITabBarItem *)item;
+@end
+
 @interface SDTabBarViewController : UITabBarController
+
+@property (weak, nonatomic) id<SDTabBarDelegate> tabDelegate;
 
 @end
