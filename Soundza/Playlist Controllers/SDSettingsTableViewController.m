@@ -13,6 +13,8 @@
 #import "SDPaymentManager.h"
 #import "SDSettingsManager.h"
 
+@import Firebase;
+
 @interface SDSettingsTableViewController () <SDPaymentManagerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *removeAdsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restorePurchaseLabel;
@@ -151,6 +153,8 @@
     activityVC.excludedActivityTypes = excludeActivities;
     
     [self presentViewController:activityVC animated:YES completion:nil];
+    
+    [FIRAnalytics logEventWithName:@"Share_To_Friend" parameters:nil];
 }
 
 #pragma mark - In App Purchases

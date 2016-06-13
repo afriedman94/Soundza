@@ -12,5 +12,7 @@ pod "AFNetworking", "~> 2.0"
 
 pod "Realm"
 
+pod 'Firebase/Core'
+
 pod 'Google-Mobile-Ads-SDK', '~> 7.0'
 

@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PlaylistManager.h"
 #import "PlayerManager.h"
+#import "UIColor+SoundzaColors.h"
+@import Firebase;
 
 @interface AppDelegate ()
 
@@ -18,9 +20,11 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [FIRApp configure];
    
     //Change nav bar tint to orange
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.981 green:0.347 blue:0 alpha:1]];
+    [[UINavigationBar appearance] setTintColor:[UIColor soundzaOrange]];
     
     //Allow the application to receive remote events for audio playback
     NSError *sessionError = nil;

@@ -22,7 +22,22 @@ PODS:
     - AFNetworking/NSURLSession
   - CocoaSoundCloudAPI (1.0.1):
     - NXOAuth2Client (= 1.2.1)
+  - Firebase/Analytics (3.2.1):
+    - FirebaseAnalytics (= 3.2.0)
+  - Firebase/Core (3.2.1):
+    - Firebase/Analytics (= 3.2.1)
+  - FirebaseAnalytics (3.2.0):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.3)
+  - FirebaseInstanceID (1.0.6)
   - Google-Mobile-Ads-SDK (7.8.1)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - MarqueeLabel (2.7.5):
     - MarqueeLabel/ObjC (= 2.7.5)
   - MarqueeLabel/ObjC (2.7.5)
@@ -38,6 +53,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CocoaSoundCloudAPI (= 1.0.1)
+  - Firebase/Core
   - Google-Mobile-Ads-SDK (~> 7.0)
   - MarqueeLabel
   - Realm
@@ -47,7 +63,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaSoundCloudAPI: e8e1f2e463fa9bb9d68b2dcf361572787c7a6c3f
+  Firebase: 6c80ac28d59d06bfd9152a7b6ea17625ca93183d
+  FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
+  FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
   Google-Mobile-Ads-SDK: 3c2a6656117989469bfe7645640aa1de024a4c6c
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MarqueeLabel: bd476f1a91e4414a6aec4ea4096a9979e8c8c2ad
   NXOAuth2Client: 4705ee7d3532c106e2758e2f10f4e9964b5aec68
   Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c

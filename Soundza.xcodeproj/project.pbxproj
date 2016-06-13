@@ -59,6 +59,8 @@
 		1899501C1BAA889200AEA795 /* ShufflePlay2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899501B1BAA889200AEA795 /* ShufflePlay2@2x.png */; };
 		18E2BB4C1BB5FBEF00366016 /* PlaylistsAsset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E2BB4B1BB5FBEF00366016 /* PlaylistsAsset@2x.png */; };
 		490A32B91D0E2A3C00CA6856 /* SDSpinningDiskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 490A32B81D0E2A3C00CA6856 /* SDSpinningDiskImageView.m */; };
+		490A32BB1D0E447000CA6856 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490A32BA1D0E447000CA6856 /* GoogleService-Info.plist */; };
+		490A32BC1D0E453500CA6856 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490A32BA1D0E447000CA6856 /* GoogleService-Info.plist */; };
 		491BEA9A1D0A40F100789B55 /* UIColor+SoundzaColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */; };
 		491BEA9C1D0A4EAC00789B55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */; };
 		4974A0201D07981500E3F5F1 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4974A01D1D07981500E3F5F1 /* iRate.bundle */; };
@@ -167,6 +169,7 @@
 		1F6FDF458636676E0A805C00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		490A32B71D0E2A3C00CA6856 /* SDSpinningDiskImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSpinningDiskImageView.h; sourceTree = "<group>"; };
 		490A32B81D0E2A3C00CA6856 /* SDSpinningDiskImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSpinningDiskImageView.m; sourceTree = "<group>"; };
+		490A32BA1D0E447000CA6856 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SoundzaTests/Supporting Files/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		491BEA981D0A40F100789B55 /* UIColor+SoundzaColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SoundzaColors.h"; sourceTree = "<group>"; };
 		491BEA991D0A40F100789B55 /* UIColor+SoundzaColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SoundzaColors.m"; sourceTree = "<group>"; };
 		491BEA9B1D0A4EAC00789B55 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -214,6 +217,7 @@
 				893EF6120B4358B7031FCA2C /* Pods */,
 				18994F671B8F8A4400AEA795 /* Products */,
 				18994F681B8F8A4400AEA795 /* Soundza */,
+				490A32BA1D0E447000CA6856 /* GoogleService-Info.plist */,
 				18994F821B8F8A4400AEA795 /* SoundzaTests */,
 			);
 			sourceTree = "<group>";
@@ -539,6 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490A32BC1D0E453500CA6856 /* GoogleService-Info.plist in Resources */,
 				1817FEA51BB7975F00EBA100 /* NoArtworkOrange@2x.png in Resources */,
 				186BA19B1BB0E7ED00F82600 /* ShufflePlaySelected@2x.png in Resources */,
 				18994F751B8F8A4400AEA795 /* Tab.storyboard in Resources */,
@@ -576,6 +581,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490A32BB1D0E447000CA6856 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
