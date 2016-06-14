@@ -185,6 +185,8 @@
     [SDSettingsManager userTappedRateInStore];
     self.fiveDaysFreeLabel.hidden = true;
     [self.tableView reloadData];
+    
+    [FIRAnalytics logEventWithName:@"Rate_App" parameters:nil];
 }
 
 @end
