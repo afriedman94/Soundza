@@ -19,16 +19,15 @@
 
 @interface PlayerManager : NSObject
 
-@property (strong, nonatomic) NSMutableArray *queue;
+@property (strong, nonatomic) NSString *clientId;
 
+@property (strong, nonatomic) NSMutableArray *queue;
 @property (strong, nonatomic) NSMutableArray *playlist;
 @property (strong, nonatomic) SDTrack *currentTrack;
-
 @property (assign, nonatomic) BOOL playingFromPlaylist;
 @property (assign, nonatomic) BOOL playingFromSearch;
 @property (nonatomic) int currentPlaylistIndex;
 @property (strong, nonatomic) NSString *playlistName;
-
 @property (assign ,nonatomic) BOOL replayIsOn;
 @property (assign, nonatomic) BOOL shuffleIsOn;
 

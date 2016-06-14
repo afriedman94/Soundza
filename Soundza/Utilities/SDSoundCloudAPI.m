@@ -28,6 +28,7 @@ NSString *const ClientID = @"40da707152150e8696da429111e3af39";
 
 + (void)getTracksWithSearch:(NSString *)search withCompletion:(void(^)(NSMutableArray *tracks, BOOL error))completion;
 {
+    
     NSString *appendedInput = [search stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     search = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?client_id=%@&q=%@&limit=50&format=json",ClientID, appendedInput];
     
@@ -59,6 +60,7 @@ NSString *const ClientID = @"40da707152150e8696da429111e3af39";
     NSString *appendedInput = [genre stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *appendInput2 = [appendedInput stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
     NSString *path = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?genres=%@&limit=50&client_id=%@",appendInput2, ClientID];
+    
     
     //Used the shared operation manager to prevent crashing. This allows the operation to be canceled at any time. Prevents crashes from popping/dismissing view controllers during an async request. It may be best to use the shared operation manager for all of my operations, but for now it is only needed for getting tracks for genre.
     self.operationManager = [AFHTTPRequestOperationManager manager];

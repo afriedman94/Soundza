@@ -13,7 +13,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RLMTrack.h"
 
-static NSString *const kSoundCloudClientId = @"376f225bf427445fc4bfb6b99b72e0bf";
+//6d30d94f16f9d50c1e6138eb76b164d1 -> 1
+//376f225bf427445fc4bfb6b99b72e0bf -> 2 - old
+//497a19fac55686e23b62586e6a7b83fe -> 3
+//0f3a55539d5fd5990b213805d0725627 -> 4
+static NSString *const kSoundCloudClientId = @"6d30d94f16f9d50c1e6138eb76b164d1";
 
 @implementation PlayerManager
 
@@ -35,10 +39,27 @@ static NSString *const kSoundCloudClientId = @"376f225bf427445fc4bfb6b99b72e0bf"
     return sharedManager;
 }
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSString *clientId1 = @"6d30d94f16f9d50c1e6138eb76b164d1";
+        NSString *clientId2 = @"376f225bf427445fc4bfb6b99b72e0bf";
+        NSString *clientId3 = @"497a19fac55686e23b62586e6a7b83fe";
+        NSString *clientId4 = @"0f3a55539d5fd5990b213805d0725627";
+        NSArray *clientIds = @[clientId1, clientId2, clientId3, clientId4];
+        srandom(time(NULL));
+        int r = random() % 4;
+        NSLog(@"%i", r);
+        self.clientId = clientIds[r];
+    }
+    return self;
+}
+
 -(void)playTrack:(SDTrack *)track
 {
     
-    NSString *streamURLSTring = [NSString stringWithFormat:@"%@?client_id=%@", track.streamURLString, kSoundCloudClientId];
+    NSString *streamURLSTring = [NSString stringWithFormat:@"%@?client_id=%@", track.streamURLString, self.clientId];
     NSURL *streamURL = [NSURL URLWithString:streamURLSTring];
     self.player = [[AVPlayer alloc]initWithURL:streamURL];
     [self.player play];
