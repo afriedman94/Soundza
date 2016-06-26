@@ -12,6 +12,7 @@
 #import "PlaylistManager.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "SDAdMobConfigurer.h"
+#import <Social/Social.h>
 
 @interface SDPlayerViewController () <GADInterstitialDelegate>
 
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UIButton *replayButton;
 @property (strong, nonatomic) IBOutlet UIButton *shuffleButton;
+@property (strong, nonatomic) IBOutlet UIButton *twitterButton;
 
 @property (strong, nonatomic) GADInterstitial *interstitialAd;
 
@@ -164,6 +166,19 @@
     [[PlayerManager sharedManager]updateShuffleIfNeeded];
 }
 
+- (IBAction)twitterButtonPressed:(UIButton *)sender {
+    
+    NSString *song = self.titleLabel.text;
+    NSString *artist = self.usernameLabel.text;
+    NSString *url = @"bit.ly/Soundza";
+    NSString* text = [NSString stringWithFormat:@"I'm lisening to %@ - %@ on Soundza! %@", song, artist, url];
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *sheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [sheet setInitialText:text];
+        [self presentViewController:sheet animated:true completion:nil];
+    }
+}
+
 #pragma mark - Priviate Methods
 
 -(void)setDisplayForCurrentTrack
@@ -196,6 +211,7 @@
             self.playLastButton.enabled = YES;
         }
         
+        self.twitterButton.hidden = NO;
         self.saveButton.hidden = NO;
         if (track.isSaved) {
             [self.saveButton setImage:[UIImage imageNamed:@"CheckMarkOrange"] forState:UIControlStateNormal];
@@ -239,8 +255,8 @@
     self.durationLabel.text = @"0:00";
     self.albumArtImageView.image = nil;
     self.saveButton.hidden = YES;
+    self.twitterButton.hidden = YES;
     
-
     self.durationLabel.alpha = .55;
     self.skipButton.alpha = .55;
     self.skipButton.enabled = NO;

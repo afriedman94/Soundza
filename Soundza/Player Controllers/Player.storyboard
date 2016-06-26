@@ -239,6 +239,19 @@
                                                     <action selector="saveButtonPressed:" destination="03q-vB-bay" eventType="touchUpInside" id="rbH-Kh-BnJ"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXT-Z7-RNX" userLabel="Twitter Button">
+                                                <rect key="frame" x="2" y="3" width="44" height="44"/>
+                                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Mg3-DR-GQh"/>
+                                                    <constraint firstAttribute="width" constant="44" id="Rn6-ry-awc"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" image="TwitterLogoBlue"/>
+                                                <connections>
+                                                    <action selector="twitterButtonPressed:" destination="03q-vB-bay" eventType="touchUpInside" id="jMa-5f-r2m"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -246,8 +259,10 @@
                                             <constraint firstItem="DH6-Pe-bbt" firstAttribute="top" secondItem="ftW-E8-xfa" secondAttribute="top" id="W74-nv-Ghc"/>
                                             <constraint firstItem="DH6-Pe-bbt" firstAttribute="leading" secondItem="ftW-E8-xfa" secondAttribute="leading" id="biv-8J-vZJ"/>
                                             <constraint firstAttribute="bottom" secondItem="DH6-Pe-bbt" secondAttribute="bottom" id="iOe-sU-fC9"/>
+                                            <constraint firstItem="fXT-Z7-RNX" firstAttribute="leading" secondItem="ftW-E8-xfa" secondAttribute="leading" id="kyD-r3-SGk"/>
                                             <constraint firstItem="mZz-vJ-sPe" firstAttribute="top" secondItem="ftW-E8-xfa" secondAttribute="top" id="u3L-aZ-s0i"/>
                                             <constraint firstAttribute="trailing" secondItem="mZz-vJ-sPe" secondAttribute="trailing" id="vl8-fC-p3S"/>
+                                            <constraint firstItem="fXT-Z7-RNX" firstAttribute="top" secondItem="ftW-E8-xfa" secondAttribute="top" id="xj8-Da-ISN"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dif-2g-3Fm" userLabel="SliderAndNames Stack View">
@@ -420,6 +435,7 @@
                         <outlet property="skipButton" destination="eLI-RR-aAd" id="lCd-rY-Ekr"/>
                         <outlet property="slider" destination="fPy-cI-lL7" id="EHO-Sb-QT9"/>
                         <outlet property="titleLabel" destination="wHF-pf-fcM" id="w0Z-eP-ehi"/>
+                        <outlet property="twitterButton" destination="fXT-Z7-RNX" id="4i6-Bj-kCe"/>
                         <outlet property="usernameLabel" destination="LtK-fU-GmS" id="4rR-JG-une"/>
                     </connections>
                 </viewController>
@@ -438,5 +454,6 @@
         <image name="ShufflePlay2.png" width="30" height="24"/>
         <image name="ShufflePlaySelected.png" width="30" height="24"/>
         <image name="Skip.png" width="76" height="68"/>
+        <image name="TwitterLogoBlue" width="34" height="28"/>
     </resources>
 </document>
