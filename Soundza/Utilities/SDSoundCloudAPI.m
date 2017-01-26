@@ -11,7 +11,7 @@
 #import "SDTrack.h"
 #import "PlaylistManager.h"
 
-NSString *const ClientID = @"40da707152150e8696da429111e3af39";
+NSString *const ClientID = @"oUfBJBYyA6QXy8mDthCcMzoas4CL3Qag";
 
 @implementation SDSoundCloudAPI
 
