@@ -34,41 +34,17 @@
 
 #pragma mark - Table View Delegate
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return @"Remove Ads";
-    }
-    else if (section == 1) {
-        
-        if ([SDSettingsManager userHasRatedApp]) {
-            return @"Thank you for rating!";
-        }
-        else return @"If you enjoy Soundza as much as we enjoyed creating it, consider rating Soundza in the app store. For a limited time, rating will grant 5 days ad free!";
-    }
-    else if (section == 2) {
-        return @"Have an issue or suggestion?";
-    }
-    else return @"Suggest this app to a friend";
-}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.section == 0 && ![[SDPaymentManager sharedInstance] adsAreRemoved]) {
-        if(indexPath.row == 0){
-            [[SDPaymentManager sharedInstance] beginRemovingAds];
-        }
-        else {
-            [[SDPaymentManager sharedInstance] beginRestoringAds];
-        }
-    }
-    else if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         [self rateApp];
     }
-    else if (indexPath.section == 2) {
+    else if (indexPath.section == 1) {
         [self composeMail];
     }
-    else if (indexPath.section == 3) {
+    else if (indexPath.section == 2) {
         NSLog(@"Send to friend");
         [self shareToFriends];
     }

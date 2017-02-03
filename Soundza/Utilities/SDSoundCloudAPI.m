@@ -10,8 +10,7 @@
 #import <SCAPI.h>
 #import "SDTrack.h"
 #import "PlaylistManager.h"
-
-NSString *const ClientID = @"oUfBJBYyA6QXy8mDthCcMzoas4CL3Qag";
+#import "Constants.h"
 
 @implementation SDSoundCloudAPI
 
@@ -30,7 +29,7 @@ NSString *const ClientID = @"oUfBJBYyA6QXy8mDthCcMzoas4CL3Qag";
 {
     
     NSString *appendedInput = [search stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    search = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?client_id=%@&q=%@&limit=50&format=json",ClientID, appendedInput];
+    search = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?client_id=%@&q=%@&limit=50&format=json",SOUNDCLOUD_CLIENT_ID, appendedInput];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:search parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -59,8 +58,7 @@ NSString *const ClientID = @"oUfBJBYyA6QXy8mDthCcMzoas4CL3Qag";
     
     NSString *appendedInput = [genre stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *appendInput2 = [appendedInput stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
-    NSString *path = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?genres=%@&limit=50&client_id=%@",appendInput2, ClientID];
-    
+    NSString *path = [NSString stringWithFormat:@"https://api.soundcloud.com/tracks?genres=%@&limit=50&client_id=%@",appendInput2, SOUNDCLOUD_CLIENT_ID];
     
     //Used the shared operation manager to prevent crashing. This allows the operation to be canceled at any time. Prevents crashes from popping/dismissing view controllers during an async request. It may be best to use the shared operation manager for all of my operations, but for now it is only needed for getting tracks for genre.
     self.operationManager = [AFHTTPRequestOperationManager manager];
